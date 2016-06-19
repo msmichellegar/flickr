@@ -6,7 +6,7 @@ var App = React.createClass({
         return (
             <div>
                 <Nav />
-                <Carousel image="http://www.libertyhotelslara.com/dosyalar/resimler/liberty-lara-hotel1.jpg" />
+                <Carousel image="http://www.sobserver.ws/themes/publication_10/theme_1/assets/img/loading.gif" />
                 <section id="images"></section>
             </div>
         );
@@ -104,6 +104,7 @@ function getPhotos(keyword) {
         if (request.status >= 200 && request.status < 400) {
             var data = JSON.parse(request.responseText);
 
+            renderCarousel(data);
             getPhotoUrls(data);
 
         }
@@ -118,7 +119,7 @@ function getPhotoUrls(data) {
     var urls = [];
 
     for (var i=0; i < photoData.length; i++) {
-        var url = "https://farm" + photoData[i].farm + ".staticflickr.com/" + photoData[i].server + "/" + photoData[i].id + "_" + photoData[i].secret + ".jpg"
+        var url = "https://farm" + photoData[i].farm + ".staticflickr.com/" + photoData[i].server + "/" + photoData[i].id + "_" + photoData[i].secret + ".jpg";
 
         urls.push(url);
     }
@@ -131,6 +132,16 @@ function renderGrid(urls) {
     ReactDOM.render(
       <Grid images={urls} />,
       document.getElementById("images")
+    );
+}
+
+function renderCarousel(data) {
+    var photoData = data.photos.photo;
+    var url = "https://farm" + photoData[0].farm + ".staticflickr.com/" + photoData[0].server + "/" + photoData[0].id + "_" + photoData[0].secret + ".jpg";
+
+    ReactDOM.render(
+        <Carousel image={url} />,
+        document.getElementById("carousel")
     );
 }
 

@@ -30,7 +30,8 @@ nav {
     margin-bottom: 100px;
 
     img {
-        width: 60%;
+        height: 60vh;
+        max-width: 60%;
     }
 
     hr {
@@ -56,6 +57,10 @@ nav {
         text-align: right;
         -webkit-appearance: none;
     }
+
+    button:hover {
+        cursor: pointer;
+    }
 }
 
 #grid {
@@ -69,10 +74,17 @@ nav {
 }
 
 .tile {
+    border: 1px solid black;
     display: inline-block;
     height: 200px;
     margin: 20px;
     width: 200px;
+
+    &:hover {
+        border: 1px solid #FCB712;
+        cursor: pointer;
+        opacity: 0.5;
+    }
 
     img {
         height: 200px;

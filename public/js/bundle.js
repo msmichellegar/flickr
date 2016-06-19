@@ -57,7 +57,7 @@
 	            "div",
 	            null,
 	            React.createElement(Nav, null),
-	            React.createElement(Carousel, { image: "http://www.libertyhotelslara.com/dosyalar/resimler/liberty-lara-hotel1.jpg" }),
+	            React.createElement(Carousel, { image: "http://www.sobserver.ws/themes/publication_10/theme_1/assets/img/loading.gif" }),
 	            React.createElement("section", { id: "images" })
 	        );
 	    }
@@ -167,6 +167,7 @@
 	        if (request.status >= 200 && request.status < 400) {
 	            var data = JSON.parse(request.responseText);
 
+	            renderCarousel(data);
 	            getPhotoUrls(data);
 	        }
 	    };
@@ -189,6 +190,13 @@
 
 	function renderGrid(urls) {
 	    ReactDOM.render(React.createElement(Grid, { images: urls }), document.getElementById("images"));
+	}
+
+	function renderCarousel(data) {
+	    var photoData = data.photos.photo;
+	    var url = "https://farm" + photoData[0].farm + ".staticflickr.com/" + photoData[0].server + "/" + photoData[0].id + "_" + photoData[0].secret + ".jpg";
+
+	    ReactDOM.render(React.createElement(Carousel, { image: url }), document.getElementById("carousel"));
 	}
 
 	addSearchEventListener();
