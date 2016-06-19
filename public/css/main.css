@@ -74,12 +74,12 @@ nav {
 
 .tile {
   display: inline-block;
-  height: 250px;
+  height: 200px;
   margin: 20px;
-  width: 250px; }
+  width: 200px; }
   .tile img {
-    height: 250px;
+    height: 200px;
     object-fit: cover;
-    width: 250px; }
+    width: 200px; }
 
 /*# sourceMappingURL=main.css.map */

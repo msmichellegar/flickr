@@ -38,3 +38,6 @@ jspm_packages
 
 # SASS cache
 .sass-cache
+
+# Environment variables
+.env

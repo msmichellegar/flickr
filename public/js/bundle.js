@@ -59,7 +59,7 @@
 	            "div",
 	            null,
 	            React.createElement(Nav, null),
-	            React.createElement(Grid, null)
+	            React.createElement("div", { id: "grid" })
 	        );
 	    }
 	});
@@ -76,8 +76,8 @@
 	                null,
 	                "Photos"
 	            ),
-	            React.createElement("input", { type: "text", placeholder: "Search" }),
-	            React.createElement("img", { src: "./images/search-icon.svg" })
+	            React.createElement("input", { type: "text", placeholder: "Search", id: "search" }),
+	            React.createElement("img", { src: "../public/images/search-icon.svg" })
 	        );
 	    }
 	});
@@ -86,6 +86,7 @@
 	    displayName: "Grid",
 
 	    render: function () {
+	        var arrayOfImages = this.props.images;
 	        var tiles = arrayOfImages.map(function (arrayImage) {
 	            return React.createElement(Tile, { image: arrayImage });
 	        });
@@ -111,6 +112,54 @@
 	});
 
 	ReactDOM.render(React.createElement(App, null), document.getElementById("app"));
+
+	function addSearchEventListener() {
+	    var searchNode = document.getElementById("search");
+
+	    searchNode.addEventListener("keydown", function (event) {
+
+	        if (event.keyCode === 13) {
+	            var searchTerm = searchNode.value;
+
+	            getPhotos(searchTerm);
+	        }
+	    });
+	}
+
+	function getPhotos(keyword) {
+	    var request = new XMLHttpRequest();
+
+	    request.open('GET', '/api/photos/' + keyword, true);
+
+	    request.onload = function () {
+	        if (request.status >= 200 && request.status < 400) {
+	            var data = JSON.parse(request.responseText);
+
+	            getPhotoUrls(data);
+	        }
+	    };
+
+	    request.send();
+	}
+
+	function getPhotoUrls(data) {
+	    var photoData = data.photos.photo;
+	    var urls = [];
+
+	    for (var i = 0; i < photoData.length; i++) {
+	        var url = "https://farm" + photoData[i].farm + ".staticflickr.com/" + photoData[i].server + "/" + photoData[i].id + "_" + photoData[i].secret + ".jpg";
+
+	        urls.push(url);
+	    }
+
+	    renderGrid(urls);
+	}
+
+	function renderGrid(urls) {
+	    ReactDOM.render(React.createElement(Grid, { images: urls }), document.getElementById("grid"));
+	}
+
+	addSearchEventListener();
 
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/michellegarrett1/Documents/flickr/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "app.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
