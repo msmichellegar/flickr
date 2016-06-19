@@ -1,14 +1,13 @@
 var React = require("react");
 var ReactDOM = require("react-dom");
 
-var arrayOfImages = ["https://www.royalcanin.com/~/media/Royal-Canin/Product-Categories/cat-adult-landing-hero.ashx", "http://www.hotel-r.net/im/hotel/es/michelle-1.jpg", "http://www.libertyhotelslara.com/dosyalar/resimler/liberty-lara-hotel1.jpg", "https://tctechcrunch2011.files.wordpress.com/2015/08/clouds.jpg", "http://wallpaperlayer.com/img/2015/8/high-tech-wallpaper-3430-3639-hd-wallpapers.jpg", "https://www.royalcanin.com/~/media/Royal-Canin/Product-Categories/cat-adult-landing-hero.ashx", "http://www.hotel-r.net/im/hotel/es/michelle-1.jpg", "http://www.libertyhotelslara.com/dosyalar/resimler/liberty-lara-hotel1.jpg"];
-
 var App = React.createClass({
     render: function() {
         return (
             <div>
                 <Nav />
-                <div id="grid"></div>
+                <Carousel image="http://www.libertyhotelslara.com/dosyalar/resimler/liberty-lara-hotel1.jpg" />
+                <section id="images"></section>
             </div>
         );
     }
@@ -36,6 +35,31 @@ var Grid = React.createClass({
         return (
             <div id="grid">
                 {tiles}
+                <hr />
+            </div>
+        );
+    }
+});
+
+var Carousel = React.createClass({
+    render: function() {
+
+        return (
+            <div id="carousel">
+                <img src={this.props.image} />
+                <ShareButton />
+                <hr />
+            </div>
+        );
+    }
+});
+
+var ShareButton = React.createClass({
+    render: function() {
+
+        return (
+            <div className="share-button">
+                <button>SHARE</button>
             </div>
         );
     }
@@ -106,8 +130,9 @@ function getPhotoUrls(data) {
 function renderGrid(urls) {
     ReactDOM.render(
       <Grid images={urls} />,
-      document.getElementById("grid")
+      document.getElementById("images")
     );
 }
 
 addSearchEventListener();
+getPhotos("puppy");

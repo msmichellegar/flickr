@@ -25,6 +25,49 @@ nav {
     }
 }
 
+#carousel {
+    background: linear-gradient(to top, black 50%, #660800 50%);
+    margin-bottom: 100px;
+
+    img {
+        width: 60%;
+    }
+
+    hr {
+        margin-top: 80px;
+        width: 85%;
+    }
+}
+
+.share-button {
+    margin: 10px auto;
+    text-align: right;
+    width: 60%;
+
+    button {
+        background-color: #660800;
+        border: none;
+        color: white;
+        display: block;
+        float: right;
+        font-size: 16px;
+        letter-spacing: 1px;
+        padding: 10px 15px;
+        text-align: right;
+        -webkit-appearance: none;
+    }
+}
+
+#grid {
+    margin: 0 10px 100px 10px;
+    text-align: center;
+
+    hr {
+        margin-top: 40px;
+        width: 85%;
+    }
+}
+
 .tile {
     display: inline-block;
     height: 200px;

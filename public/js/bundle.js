@@ -49,8 +49,6 @@
 	var React = __webpack_require__(1);
 	var ReactDOM = __webpack_require__(38);
 
-	var arrayOfImages = ["https://www.royalcanin.com/~/media/Royal-Canin/Product-Categories/cat-adult-landing-hero.ashx", "http://www.hotel-r.net/im/hotel/es/michelle-1.jpg", "http://www.libertyhotelslara.com/dosyalar/resimler/liberty-lara-hotel1.jpg", "https://tctechcrunch2011.files.wordpress.com/2015/08/clouds.jpg", "http://wallpaperlayer.com/img/2015/8/high-tech-wallpaper-3430-3639-hd-wallpapers.jpg", "https://www.royalcanin.com/~/media/Royal-Canin/Product-Categories/cat-adult-landing-hero.ashx", "http://www.hotel-r.net/im/hotel/es/michelle-1.jpg", "http://www.libertyhotelslara.com/dosyalar/resimler/liberty-lara-hotel1.jpg"];
-
 	var App = React.createClass({
 	    displayName: "App",
 
@@ -59,7 +57,8 @@
 	            "div",
 	            null,
 	            React.createElement(Nav, null),
-	            React.createElement("div", { id: "grid" })
+	            React.createElement(Carousel, { image: "http://www.libertyhotelslara.com/dosyalar/resimler/liberty-lara-hotel1.jpg" }),
+	            React.createElement("section", { id: "images" })
 	        );
 	    }
 	});
@@ -94,7 +93,40 @@
 	        return React.createElement(
 	            "div",
 	            { id: "grid" },
-	            tiles
+	            tiles,
+	            React.createElement("hr", null)
+	        );
+	    }
+	});
+
+	var Carousel = React.createClass({
+	    displayName: "Carousel",
+
+	    render: function () {
+
+	        return React.createElement(
+	            "div",
+	            { id: "carousel" },
+	            React.createElement("img", { src: this.props.image }),
+	            React.createElement(ShareButton, null),
+	            React.createElement("hr", null)
+	        );
+	    }
+	});
+
+	var ShareButton = React.createClass({
+	    displayName: "ShareButton",
+
+	    render: function () {
+
+	        return React.createElement(
+	            "div",
+	            { className: "share-button" },
+	            React.createElement(
+	                "button",
+	                null,
+	                "SHARE"
+	            )
 	        );
 	    }
 	});
@@ -156,10 +188,11 @@
 	}
 
 	function renderGrid(urls) {
-	    ReactDOM.render(React.createElement(Grid, { images: urls }), document.getElementById("grid"));
+	    ReactDOM.render(React.createElement(Grid, { images: urls }), document.getElementById("images"));
 	}
 
 	addSearchEventListener();
+	getPhotos("puppy");
 
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/michellegarrett1/Documents/flickr/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "app.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 

@@ -52,6 +52,10 @@ body {
 h1 {
   font-size: 60px; }
 
+hr {
+  background-color: white;
+  height: 5px; }
+
 nav {
   align-items: center;
   display: flex;
@@ -71,6 +75,38 @@ nav {
     right: 60px;
     position: absolute;
     top: 63px; }
+
+#carousel {
+  background: linear-gradient(to top, black 50%, #660800 50%);
+  margin-bottom: 100px; }
+  #carousel img {
+    width: 60%; }
+  #carousel hr {
+    margin-top: 80px;
+    width: 85%; }
+
+.share-button {
+  margin: 10px auto;
+  text-align: right;
+  width: 60%; }
+  .share-button button {
+    background-color: #660800;
+    border: none;
+    color: white;
+    display: block;
+    float: right;
+    font-size: 16px;
+    letter-spacing: 1px;
+    padding: 10px 15px;
+    text-align: right;
+    -webkit-appearance: none; }
+
+#grid {
+  margin: 0 10px 100px 10px;
+  text-align: center; }
+  #grid hr {
+    margin-top: 40px;
+    width: 85%; }
 
 .tile {
   display: inline-block;
