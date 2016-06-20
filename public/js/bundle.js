@@ -114,6 +114,9 @@
 
 	function renderGrid(urls) {
 	    ReactDOM.render(React.createElement(Grid, { images: urls }), document.getElementById("images"));
+
+	    addSearchEventListener();
+	    // addGridEventListeners();
 	}
 
 	function renderCarousel(data) {
@@ -123,7 +126,28 @@
 	    ReactDOM.render(React.createElement(Carousel, { image: url }), document.getElementById("carousel"));
 	}
 
-	addSearchEventListener();
+	// function addGridEventListeners() {
+	//     var tileNodes = document.getElementsByClassName("tile");
+	//
+	//     tileNodes.forEach(function(tileNode) {
+	//         tileNode.addEventListener("click", function() {
+	//             // var node = tileNodes[i];
+	//
+	//             console.log("node");
+	//         });
+	//     })
+	//
+	//     // for (var i=0; i < tileNodes.length; i++) {
+	//     //
+	//     //     tileNodes[i].addEventListener("click", function() {
+	//     //         var node = tileNodes[i];
+	//     //
+	//     //         console.log(node);
+	//     //     });
+	//     // }
+	//
+	// }
+
 	getPhotos("puppy");
 
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/michellegarrett1/Documents/flickr/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "app.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
@@ -20462,14 +20486,19 @@
 	var ReactDOM = __webpack_require__(38);
 
 	var Tile = __webpack_require__(170);
+	var Carousel = __webpack_require__(172);
 
 	var Grid = React.createClass({
 	    displayName: "Grid",
 
 	    render: function () {
 	        var arrayOfImages = this.props.images;
+	        var counter = 0;
+
 	        var tiles = arrayOfImages.map(function (arrayImage) {
-	            return React.createElement(Tile, { image: arrayImage });
+	            counter++;
+
+	            return React.createElement(Tile, { image: arrayImage, key: counter, id: counter });
 	        });
 
 	        return React.createElement(
@@ -20478,6 +20507,20 @@
 	            tiles,
 	            React.createElement("hr", null)
 	        );
+	    },
+
+	    componentDidMount: function () {
+	        var tileNodes = document.querySelectorAll(".tile img");
+	        var properties = this.props;
+
+	        for (var i = 0; i < tileNodes.length; i++) {
+
+	            tileNodes[i].addEventListener("click", function () {
+	                var clickedImage = properties.images[this.id - 1];
+
+	                ReactDOM.render(React.createElement(Carousel, { image: clickedImage }), document.getElementById("carousel"));
+	            });
+	        }
 	    }
 	});
 
@@ -20501,7 +20544,7 @@
 	        return React.createElement(
 	            "div",
 	            { className: "tile" },
-	            React.createElement("img", { src: this.props.image })
+	            React.createElement("img", { src: this.props.image, id: this.props.id })
 	        );
 	    }
 	});
@@ -20598,7 +20641,9 @@
 	        return React.createElement(
 	            "div",
 	            { id: "carousel" },
+	            React.createElement("img", { className: "arrow", src: "../public/images/left-arrow.svg" }),
 	            React.createElement("img", { className: "carousel-image", src: this.props.image }),
+	            React.createElement("img", { className: "arrow", src: "../public/images/right-arrow.svg" }),
 	            React.createElement(ShareButton, null),
 	            React.createElement("hr", null)
 	        );

@@ -34,6 +34,14 @@ nav {
         max-width: 60%;
     }
 
+    .arrow {
+        cursor: pointer;
+        height: 50px;
+        margin: 10px;
+        position: relative;
+        top: -25vh;
+    }
+
     hr {
         width: 85%;
     }

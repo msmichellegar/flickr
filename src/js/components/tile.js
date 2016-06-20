@@ -5,7 +5,7 @@ var Tile = React.createClass({
     render: function() {
         return (
             <div className="tile">
-                <img src={this.props.image} />
+                <img src={this.props.image} id={this.props.id} />
             </div>
         );
     }

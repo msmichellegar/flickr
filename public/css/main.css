@@ -82,6 +82,12 @@ nav {
   #carousel .carousel-image {
     height: 60vh;
     max-width: 60%; }
+  #carousel .arrow {
+    cursor: pointer;
+    height: 50px;
+    margin: 10px;
+    position: relative;
+    top: -25vh; }
   #carousel hr {
     width: 85%; }
 
