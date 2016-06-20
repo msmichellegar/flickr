@@ -1,6 +1,10 @@
 var React = require("react");
 var ReactDOM = require("react-dom");
 
+var Nav = require("./components/nav.js");
+var Carousel = require("./components/carousel.js");
+var Grid = require("./components/grid.js");
+
 var App = React.createClass({
     render: function() {
         return (
@@ -8,68 +12,6 @@ var App = React.createClass({
                 <Nav />
                 <Carousel image="http://www.sobserver.ws/themes/publication_10/theme_1/assets/img/loading.gif" />
                 <section id="images"></section>
-            </div>
-        );
-    }
-});
-
-var Nav = React.createClass({
-    render: function() {
-        return (
-            <nav>
-                <h1>Photos</h1>
-                <input type="text" placeholder="Search" id="search" />
-                <img src="../public/images/search-icon.svg" />
-            </nav>
-        );
-    }
-});
-
-var Grid = React.createClass({
-    render: function() {
-        var arrayOfImages = this.props.images;
-        var tiles = arrayOfImages.map(function(arrayImage) {
-            return <Tile image={arrayImage} />
-        });
-
-        return (
-            <div id="grid">
-                {tiles}
-                <hr />
-            </div>
-        );
-    }
-});
-
-var Carousel = React.createClass({
-    render: function() {
-
-        return (
-            <div id="carousel">
-                <img src={this.props.image} />
-                <ShareButton />
-                <hr />
-            </div>
-        );
-    }
-});
-
-var ShareButton = React.createClass({
-    render: function() {
-
-        return (
-            <div className="share-button">
-                <button>SHARE</button>
-            </div>
-        );
-    }
-});
-
-var Tile = React.createClass({
-    render: function() {
-        return (
-            <div className="tile">
-                <img src={this.props.image} />
             </div>
         );
     }

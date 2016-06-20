@@ -29,28 +29,79 @@ nav {
     background: linear-gradient(to top, black 50%, #660800 50%);
     margin-bottom: 100px;
 
-    img {
+    .carousel-image {
         height: 60vh;
         max-width: 60%;
     }
 
     hr {
-        margin-top: 80px;
         width: 85%;
     }
 }
 
 .share-button {
+    display: flex;
+    justify-content: flex-end;
+    height: 50px;
     margin: 10px auto;
     text-align: right;
     width: 60%;
+
+    .share-button-hover {
+        visibility: hidden;
+
+        .social-buttons {
+            background-color: #660800;
+            display: flex;
+            justify-content: center;
+            left: 90px;
+            padding: 5px 0;
+            position: relative;
+            top: -100px;
+            width: 250px;
+
+            div {
+                text-align: center;
+            }
+
+            p {
+                background-color: white;
+                color: black;
+                margin: 5px 10px;
+                padding: 10px 5px;
+                text-align: center;
+                width: 50px;
+            }
+
+            img {
+                max-width: 60px;
+            }
+
+        }
+
+        .arrow-down {
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-top: 20px solid #660800;
+            height: 0;
+            left: 280px;
+            position: relative;
+            top: -100px;
+            width: 0;
+        }
+
+    }
+
+    &:hover .share-button-hover {
+        visibility: visible;
+    }
 
     button {
         background-color: #660800;
         border: none;
         color: white;
         display: block;
-        float: right;
+        height: 40px;
         font-size: 16px;
         letter-spacing: 1px;
         padding: 10px 15px;
@@ -59,6 +110,7 @@ nav {
     }
 
     button:hover {
+        color: #FCB712;
         cursor: pointer;
     }
 }
