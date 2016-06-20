@@ -50,8 +50,8 @@
 	var ReactDOM = __webpack_require__(38);
 
 	var Nav = __webpack_require__(168);
-	var Carousel = __webpack_require__(172);
-	var Grid = __webpack_require__(169);
+	var Carousel = __webpack_require__(169);
+	var Grid = __webpack_require__(171);
 
 	var App = React.createClass({
 	    displayName: "App",
@@ -113,10 +113,10 @@
 	}
 
 	function renderGrid(urls) {
+
 	    ReactDOM.render(React.createElement(Grid, { images: urls }), document.getElementById("images"));
 
 	    addSearchEventListener();
-	    // addGridEventListeners();
 	}
 
 	function renderCarousel(data) {
@@ -125,28 +125,6 @@
 
 	    ReactDOM.render(React.createElement(Carousel, { image: url }), document.getElementById("carousel"));
 	}
-
-	// function addGridEventListeners() {
-	//     var tileNodes = document.getElementsByClassName("tile");
-	//
-	//     tileNodes.forEach(function(tileNode) {
-	//         tileNode.addEventListener("click", function() {
-	//             // var node = tileNodes[i];
-	//
-	//             console.log("node");
-	//         });
-	//     })
-	//
-	//     // for (var i=0; i < tileNodes.length; i++) {
-	//     //
-	//     //     tileNodes[i].addEventListener("click", function() {
-	//     //         var node = tileNodes[i];
-	//     //
-	//     //         console.log(node);
-	//     //     });
-	//     // }
-	//
-	// }
 
 	getPhotos("puppy");
 
@@ -20485,76 +20463,31 @@
 	var React = __webpack_require__(1);
 	var ReactDOM = __webpack_require__(38);
 
-	var Tile = __webpack_require__(170);
-	var Carousel = __webpack_require__(172);
+	var ShareButton = __webpack_require__(170);
 
-	var Grid = React.createClass({
-	    displayName: "Grid",
+	var Carousel = React.createClass({
+	    displayName: "Carousel",
 
 	    render: function () {
-	        var arrayOfImages = this.props.images;
-	        var counter = 0;
-
-	        var tiles = arrayOfImages.map(function (arrayImage) {
-	            counter++;
-
-	            return React.createElement(Tile, { image: arrayImage, key: counter, id: counter });
-	        });
 
 	        return React.createElement(
 	            "div",
-	            { id: "grid" },
-	            tiles,
+	            { id: "carousel" },
+	            React.createElement("img", { className: "arrow", src: "../public/images/left-arrow.svg" }),
+	            React.createElement("img", { className: "carousel-image", src: this.props.image }),
+	            React.createElement("img", { className: "arrow", src: "../public/images/right-arrow.svg" }),
+	            React.createElement(ShareButton, null),
 	            React.createElement("hr", null)
 	        );
-	    },
-
-	    componentDidMount: function () {
-	        var tileNodes = document.querySelectorAll(".tile img");
-	        var properties = this.props;
-
-	        for (var i = 0; i < tileNodes.length; i++) {
-
-	            tileNodes[i].addEventListener("click", function () {
-	                var clickedImage = properties.images[this.id - 1];
-
-	                ReactDOM.render(React.createElement(Carousel, { image: clickedImage }), document.getElementById("carousel"));
-	            });
-	        }
 	    }
 	});
 
-	module.exports = Grid;
+	module.exports = Carousel;
 
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/michellegarrett1/Documents/flickr/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "grid.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/michellegarrett1/Documents/flickr/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "carousel.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
 /* 170 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/michellegarrett1/Documents/flickr/node_modules/react-hot-loader/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/michellegarrett1/Documents/flickr/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-
-	var React = __webpack_require__(1);
-	var ReactDOM = __webpack_require__(38);
-
-	var Tile = React.createClass({
-	    displayName: "Tile",
-
-	    render: function () {
-	        return React.createElement(
-	            "div",
-	            { className: "tile" },
-	            React.createElement("img", { src: this.props.image, id: this.props.id })
-	        );
-	    }
-	});
-
-	module.exports = Tile;
-
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/michellegarrett1/Documents/flickr/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "tile.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-
-/***/ },
-/* 171 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/michellegarrett1/Documents/flickr/node_modules/react-hot-loader/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/michellegarrett1/Documents/flickr/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -20623,6 +20556,72 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/michellegarrett1/Documents/flickr/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "sharebutton.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
+/* 171 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/michellegarrett1/Documents/flickr/node_modules/react-hot-loader/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/michellegarrett1/Documents/flickr/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	var React = __webpack_require__(1);
+	var ReactDOM = __webpack_require__(38);
+
+	var Tile = __webpack_require__(172);
+	var Carousel = __webpack_require__(169);
+
+	var Grid = React.createClass({
+	    displayName: "Grid",
+
+	    render: function () {
+	        var arrayOfImages = this.props.images;
+	        var counter = 0;
+
+	        var tiles = arrayOfImages.map(function (arrayImage) {
+	            counter++;
+
+	            return React.createElement(Tile, { image: arrayImage, key: counter, id: counter });
+	        });
+
+	        return React.createElement(
+	            "div",
+	            { id: "grid" },
+	            tiles,
+	            React.createElement("hr", null)
+	        );
+	    },
+
+	    componentDidMount: function () {
+	        var tileNodes = document.querySelectorAll(".tile img");
+	        var properties = this.props;
+
+	        for (var i = 0; i < tileNodes.length; i++) {
+
+	            tileNodes[i].addEventListener("click", function () {
+	                var clickedImage = properties.images[this.id - 1];
+
+	                ReactDOM.render(React.createElement(Carousel, { image: clickedImage }), document.getElementById("carousel"));
+	            });
+	        }
+	    },
+
+	    componentWillReceiveProps: function (newProps) {
+	        var tileNodes = document.querySelectorAll(".tile img");
+	        var properties = newProps;
+
+	        for (var i = 0; i < tileNodes.length; i++) {
+
+	            tileNodes[i].addEventListener("click", function () {
+	                var clickedImage = properties.images[this.id - 1];
+
+	                ReactDOM.render(React.createElement(Carousel, { image: clickedImage }), document.getElementById("carousel"));
+	            });
+	        }
+	    }
+	});
+
+	module.exports = Grid;
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/michellegarrett1/Documents/flickr/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "grid.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
 /* 172 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -20631,28 +20630,21 @@
 	var React = __webpack_require__(1);
 	var ReactDOM = __webpack_require__(38);
 
-	var ShareButton = __webpack_require__(171);
-
-	var Carousel = React.createClass({
-	    displayName: "Carousel",
+	var Tile = React.createClass({
+	    displayName: "Tile",
 
 	    render: function () {
-
 	        return React.createElement(
 	            "div",
-	            { id: "carousel" },
-	            React.createElement("img", { className: "arrow", src: "../public/images/left-arrow.svg" }),
-	            React.createElement("img", { className: "carousel-image", src: this.props.image }),
-	            React.createElement("img", { className: "arrow", src: "../public/images/right-arrow.svg" }),
-	            React.createElement(ShareButton, null),
-	            React.createElement("hr", null)
+	            { className: "tile" },
+	            React.createElement("img", { src: this.props.image, id: this.props.id })
 	        );
 	    }
 	});
 
-	module.exports = Carousel;
+	module.exports = Tile;
 
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/michellegarrett1/Documents/flickr/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "carousel.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/michellegarrett1/Documents/flickr/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "tile.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ }
 /******/ ]);

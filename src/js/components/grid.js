@@ -42,6 +42,24 @@ var Grid = React.createClass({
         }
 
     },
+
+    componentWillReceiveProps: function(newProps) {
+        var tileNodes = document.querySelectorAll(".tile img");
+        var properties = newProps;
+
+        for (var i=0; i < tileNodes.length; i++) {
+
+            tileNodes[i].addEventListener("click", function() {
+                var clickedImage = properties.images[this.id -1];
+
+                ReactDOM.render(
+                    <Carousel image={clickedImage} />,
+                    document.getElementById("carousel")
+                );
+
+            });
+        }
+    }
 });
 
 module.exports = Grid;

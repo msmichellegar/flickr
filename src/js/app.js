@@ -71,13 +71,13 @@ function getPhotoUrls(data) {
 }
 
 function renderGrid(urls) {
+
     ReactDOM.render(
       <Grid images={urls} />,
       document.getElementById("images")
     );
 
     addSearchEventListener();
-    // addGridEventListeners();
 }
 
 function renderCarousel(data) {
@@ -89,27 +89,5 @@ function renderCarousel(data) {
         document.getElementById("carousel")
     );
 }
-
-// function addGridEventListeners() {
-//     var tileNodes = document.getElementsByClassName("tile");
-//
-//     tileNodes.forEach(function(tileNode) {
-//         tileNode.addEventListener("click", function() {
-//             // var node = tileNodes[i];
-//
-//             console.log("node");
-//         });
-//     })
-//
-//     // for (var i=0; i < tileNodes.length; i++) {
-//     //
-//     //     tileNodes[i].addEventListener("click", function() {
-//     //         var node = tileNodes[i];
-//     //
-//     //         console.log(node);
-//     //     });
-//     // }
-//
-// }
 
 getPhotos("puppy");
