@@ -20473,13 +20473,30 @@
 	        return React.createElement(
 	            "div",
 	            { id: "carousel" },
-	            React.createElement("img", { className: "arrow", src: "../public/images/left-arrow.svg" }),
+	            React.createElement("img", { className: "arrow left", src: "../public/images/left-arrow.svg" }),
 	            React.createElement("img", { className: "carousel-image", src: this.props.image }),
-	            React.createElement("img", { className: "arrow", src: "../public/images/right-arrow.svg" }),
+	            React.createElement("img", { className: "arrow right", src: "../public/images/right-arrow.svg" }),
 	            React.createElement(ShareButton, null),
 	            React.createElement("hr", null)
 	        );
+	    },
+
+	    componentDidMount: function () {
+	        var leftArrowNode = document.getElementById(".left");
+	        var rightArrowNode = document.getElementById(".right");
+	        var properties = this.props;
+
+	        leftArrowNode.addEventListener("click", function () {
+	            console.log("left");
+	        });
+
+	        rightArrowNode.addEventListener("click", function () {
+	            console.log("right");
+	        });
+
+	        ReactDOM.render(React.createElement(Carousel, { image: clickedImage }), document.getElementById("carousel"));
 	    }
+
 	});
 
 	module.exports = Carousel;
