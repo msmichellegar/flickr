@@ -1,6 +1,10 @@
 var React = require("react");
 var ReactDOM = require("react-dom");
 
+var methods = require("../methods/methods.js");
+
+console.log("in tile", methods);
+
 var Tile = React.createClass({
     render: function() {
         return (

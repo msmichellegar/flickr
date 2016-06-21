@@ -153,18 +153,6 @@ nav {
     margin-top: 20px;
     width: 85%; }
 
-.pagination {
-  font-size: 20px;
-  margin: 0 auto;
-  text-align: right;
-  width: 85%; }
-  .pagination a {
-    padding: 5px; }
-  .pagination a:hover {
-    color: #FCB712;
-    cursor: pointer;
-    text-decoration: underline; }
-
 .tile {
   border: 1px solid black;
   display: inline-block;
@@ -179,5 +167,17 @@ nav {
     height: 200px;
     object-fit: cover;
     width: 200px; }
+
+.pagination {
+  font-size: 20px;
+  margin: 0 auto;
+  text-align: right;
+  width: 85%; }
+  .pagination a {
+    padding: 5px; }
+  .pagination a:hover {
+    color: #FCB712;
+    cursor: pointer;
+    text-decoration: underline; }
 
 /*# sourceMappingURL=main.css.map */

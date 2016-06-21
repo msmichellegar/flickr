@@ -1,7 +1,12 @@
 var React = require("react");
 var ReactDOM = require("react-dom");
 
+var methods = require("../methods/methods.js");
+
 var ShareButton = require("./sharebutton.js");
+
+console.log("in carousel", methods)
+
 
 var Carousel = React.createClass({
     render: function() {

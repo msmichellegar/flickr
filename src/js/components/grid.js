@@ -1,10 +1,16 @@
 var React = require("react");
 var ReactDOM = require("react-dom");
 
+var methods = require("../methods/methods.js");
+
 var Tile = require("./tile.js");
 var Carousel = require("./carousel.js");
+var Pagination = require("./pagination.js");
+
+console.log("in grid", methods)
 
 var Grid = React.createClass({
+
     render: function() {
         var arrayOfImages = this.props.images;
         var counter = -1;
@@ -18,9 +24,7 @@ var Grid = React.createClass({
         return (
             <div id="grid">
                 {tiles}
-                <p className="pagination">
-                    <a>&#60;&#60;</a><a>&#60;</a><a>1</a><a>2</a><a>3</a><a>4</a><a>5</a><a>6</a><a>&#62;&#62;</a><a>&#62;</a>
-                </p>
+                <Pagination searchTerm={this.props.theme} />
                 <hr />
             </div>
         );
@@ -28,21 +32,9 @@ var Grid = React.createClass({
     },
 
     componentDidMount: function() {
-        var tileNodes = document.querySelectorAll(".tile img");
         var properties = this.props;
 
-        for (var i=0; i < tileNodes.length; i++) {
-
-            tileNodes[i].addEventListener("click", function() {
-                var clickedImage = properties.images[this.id -1];
-
-                ReactDOM.render(
-                    <Carousel image={clickedImage} />,
-                    document.getElementById("carousel")
-                );
-
-            });
-        }
+        enableCarouselDisplay(properties);
 
     },
 
@@ -50,19 +42,29 @@ var Grid = React.createClass({
         var tileNodes = document.querySelectorAll(".tile img");
         var properties = newProps;
 
-        for (var i=0; i < tileNodes.length; i++) {
-
-            tileNodes[i].addEventListener("click", function() {
-                var clickedImage = properties.images[this.id -1];
-
-                ReactDOM.render(
-                    <Carousel image={clickedImage} />,
-                    document.getElementById("carousel")
-                );
-
-            });
-        }
+        enableCarouselDisplay(properties);
     }
 });
+
+
+// adds event listeners to grid tiles
+function enableCarouselDisplay(properties) {
+    var tileNodes = document.querySelectorAll(".tile img");
+
+    for (var i=0; i < tileNodes.length; i++) {
+
+        // captures click event and determines image clicked on
+        tileNodes[i].addEventListener("click", function() {
+            var clickedImage = properties.images[this.id];
+
+            // renders carousel main image as clicked tile
+            ReactDOM.render(
+                <Carousel image={clickedImage} />,
+                document.getElementById("carousel")
+            );
+
+        });
+    }
+}
 
 module.exports = Grid;
