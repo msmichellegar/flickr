@@ -1,0 +1,21 @@
+#carousel {
+    background: linear-gradient(to top, black 50%, #660800 50%);
+    margin-bottom: 80px;
+
+    .carousel-image {
+        height: 60vh;
+        max-width: 60%;
+    }
+
+    .arrow {
+        cursor: pointer;
+        height: 50px;
+        margin: 10px;
+        position: relative;
+        top: -25vh;
+    }
+
+    hr {
+        width: 85%;
+    }
+}

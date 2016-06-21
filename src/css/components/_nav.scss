@@ -1,0 +1,26 @@
+nav {
+    align-items: center;
+    display: flex;
+    height: 100px;
+    justify-content: space-between;
+    padding: 25px 50px;
+
+    h1 {
+        color: #FCB712;
+    }
+
+    input[type="text"] {
+        height: 30px;
+        font-size: 18px;
+        padding: 5px 40px 5px 15px;
+        width: 350px;
+    }
+
+    img {
+        fill: #660800;
+        height: 25px;
+        right: 60px;
+        position: absolute;
+        top: 63px;
+    }
+}

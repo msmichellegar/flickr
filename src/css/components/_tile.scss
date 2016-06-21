@@ -1,0 +1,19 @@
+.tile {
+    border: 1px solid black;
+    display: inline-block;
+    height: 200px;
+    margin: 20px;
+    width: 200px;
+
+    &:hover {
+        border: 1px solid #FCB712;
+        cursor: pointer;
+        opacity: 0.5;
+    }
+
+    img {
+        height: 200px;
+        object-fit: cover;
+        width: 200px;
+    }
+}

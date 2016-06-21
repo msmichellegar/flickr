@@ -121,9 +121,9 @@
 
 	function renderCarousel(data) {
 	    var photoData = data.photos.photo;
-	    var url = "https://farm" + photoData[0].farm + ".staticflickr.com/" + photoData[0].server + "/" + photoData[0].id + "_" + photoData[0].secret + ".jpg";
+	    var firstPhotoUrl = "https://farm" + photoData[0].farm + ".staticflickr.com/" + photoData[0].server + "/" + photoData[0].id + "_" + photoData[0].secret + ".jpg";
 
-	    ReactDOM.render(React.createElement(Carousel, { image: url }), document.getElementById("carousel"));
+	    ReactDOM.render(React.createElement(Carousel, { image: firstPhotoUrl, id: "0" }), document.getElementById("carousel"));
 	}
 
 	getPhotos("puppy");
@@ -20474,30 +20474,80 @@
 	            "div",
 	            { id: "carousel" },
 	            React.createElement("img", { className: "arrow left", src: "../public/images/left-arrow.svg" }),
-	            React.createElement("img", { className: "carousel-image", src: this.props.image }),
+	            React.createElement("img", { className: "carousel-image", src: this.props.image, id: this.props.id }),
 	            React.createElement("img", { className: "arrow right", src: "../public/images/right-arrow.svg" }),
 	            React.createElement(ShareButton, null),
 	            React.createElement("hr", null)
 	        );
-	    },
-
-	    componentDidMount: function () {
-	        var leftArrowNode = document.getElementById(".left");
-	        var rightArrowNode = document.getElementById(".right");
-	        var properties = this.props;
-
-	        leftArrowNode.addEventListener("click", function () {
-	            console.log("left");
-	        });
-
-	        rightArrowNode.addEventListener("click", function () {
-	            console.log("right");
-	        });
-
-	        ReactDOM.render(React.createElement(Carousel, { image: clickedImage }), document.getElementById("carousel"));
 	    }
 
 	});
+
+	// componentDidMount: function() {
+	//     var leftArrowNode = document.querySelectorAll(".left");
+	//     var rightArrowNode = document.querySelectorAll(".right");
+	//     var properties = this.props;
+	//
+	//     var currentImageId = parseInt(document.getElementsByClassName("carousel-image")[0].id);
+	//
+	//     leftArrowNode[0].addEventListener("click", function() {
+	//         activateLeftArrow(properties, currentImageId);
+	//     });
+	//
+	//     rightArrowNode[0].addEventListener("click", function() {
+	//         activateRightArrow(properties, currentImageId);
+	//     });
+	//
+	// },
+	//
+	// componentWillReceiveProps: function(newProps) {
+	//     var leftArrowNode = document.querySelectorAll(".left");
+	//     var rightArrowNode = document.querySelectorAll(".right");
+	//     var properties = newProps;
+	//
+	//     var currentImageId = parseInt(document.getElementsByClassName("carousel-image")[0].id);
+	//
+	//     leftArrowNode[0].removeEventListener("click", activateLeftArrow);
+	//
+	//     leftArrowNode[0].addEventListener("click", function() {
+	//         activateLeftArrow(properties, currentImageId);
+	//     });
+	//
+	//     rightArrowNode[0].removeEventListener("click", activateRightArrow);
+	//
+	//     rightArrowNode[0].addEventListener("click", function() {
+	//         activateRightArrow(properties, currentImageId);
+	//     });
+	//
+	// }
+
+	function activateLeftArrow(properties, currentImageId) {
+	    var previousImageId;
+	    var previousImage;
+
+	    if (currentImageId === 0) {
+	        previousImageId = "15";
+	    } else {
+	        previousImageId = parseInt(currentImageId - 1);
+	    }
+
+	    console.log(currentImageId, previousImageId);
+
+	    previousImage = document.getElementById(previousImageId).src;
+
+	    ReactDOM.render(React.createElement(Carousel, { image: previousImage, id: previousImageId }), document.getElementById("carousel"));
+	}
+
+	function activateRightArrow(properties, currentImageId) {
+	    var nextImageId;
+	    var nextImage;
+
+	    console.log(currentImageId);
+
+	    if (currentImageId === 15) {
+	        nextImageId = "0";
+	    } else {}
+	}
 
 	module.exports = Carousel;
 
@@ -20589,7 +20639,7 @@
 
 	    render: function () {
 	        var arrayOfImages = this.props.images;
-	        var counter = 0;
+	        var counter = -1;
 
 	        var tiles = arrayOfImages.map(function (arrayImage) {
 	            counter++;
@@ -20601,6 +20651,60 @@
 	            "div",
 	            { id: "grid" },
 	            tiles,
+	            React.createElement(
+	                "p",
+	                { className: "pagination" },
+	                React.createElement(
+	                    "a",
+	                    null,
+	                    "<<"
+	                ),
+	                React.createElement(
+	                    "a",
+	                    null,
+	                    "<"
+	                ),
+	                React.createElement(
+	                    "a",
+	                    null,
+	                    "1"
+	                ),
+	                React.createElement(
+	                    "a",
+	                    null,
+	                    "2"
+	                ),
+	                React.createElement(
+	                    "a",
+	                    null,
+	                    "3"
+	                ),
+	                React.createElement(
+	                    "a",
+	                    null,
+	                    "4"
+	                ),
+	                React.createElement(
+	                    "a",
+	                    null,
+	                    "5"
+	                ),
+	                React.createElement(
+	                    "a",
+	                    null,
+	                    "6"
+	                ),
+	                React.createElement(
+	                    "a",
+	                    null,
+	                    ">>"
+	                ),
+	                React.createElement(
+	                    "a",
+	                    null,
+	                    ">"
+	                )
+	            ),
 	            React.createElement("hr", null)
 	        );
 	    },

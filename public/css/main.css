@@ -78,7 +78,7 @@ nav {
 
 #carousel {
   background: linear-gradient(to top, black 50%, #660800 50%);
-  margin-bottom: 100px; }
+  margin-bottom: 80px; }
   #carousel .carousel-image {
     height: 60vh;
     max-width: 60%; }
@@ -147,11 +147,23 @@ nav {
     cursor: pointer; }
 
 #grid {
-  margin: 0 10px 100px 10px;
+  margin: 0 10px 80px 10px;
   text-align: center; }
   #grid hr {
-    margin-top: 40px;
+    margin-top: 20px;
     width: 85%; }
+
+.pagination {
+  font-size: 20px;
+  margin: 0 auto;
+  text-align: right;
+  width: 85%; }
+  .pagination a {
+    padding: 5px; }
+  .pagination a:hover {
+    color: #FCB712;
+    cursor: pointer;
+    text-decoration: underline; }
 
 .tile {
   border: 1px solid black;

@@ -7,7 +7,7 @@ var Carousel = require("./carousel.js");
 var Grid = React.createClass({
     render: function() {
         var arrayOfImages = this.props.images;
-        var counter = 0;
+        var counter = -1;
 
         var tiles = arrayOfImages.map(function(arrayImage) {
             counter++;
@@ -18,6 +18,9 @@ var Grid = React.createClass({
         return (
             <div id="grid">
                 {tiles}
+                <p className="pagination">
+                    <a>&#60;&#60;</a><a>&#60;</a><a>1</a><a>2</a><a>3</a><a>4</a><a>5</a><a>6</a><a>&#62;&#62;</a><a>&#62;</a>
+                </p>
                 <hr />
             </div>
         );

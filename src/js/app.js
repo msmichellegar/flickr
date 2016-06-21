@@ -82,10 +82,10 @@ function renderGrid(urls) {
 
 function renderCarousel(data) {
     var photoData = data.photos.photo;
-    var url = "https://farm" + photoData[0].farm + ".staticflickr.com/" + photoData[0].server + "/" + photoData[0].id + "_" + photoData[0].secret + ".jpg";
+    var firstPhotoUrl = "https://farm" + photoData[0].farm + ".staticflickr.com/" + photoData[0].server + "/" + photoData[0].id + "_" + photoData[0].secret + ".jpg";
 
     ReactDOM.render(
-        <Carousel image={url} />,
+        <Carousel image={firstPhotoUrl} id="0" />,
         document.getElementById("carousel")
     );
 }
