@@ -12,6 +12,7 @@ var Grid = React.createClass({
         var counter = -1;
         var searchTerm = this.props.theme;
 
+        var pageNumberId = "page-" + this.props.pageNumber;
 
         var tiles = arrayOfImages.map(function(arrayImage, searchTerm) {
             counter++;
@@ -20,7 +21,7 @@ var Grid = React.createClass({
         });
 
         return (
-            <div className="grid" id={this.props.pageNumber}>
+            <div className="grid" id={pageNumberId}>
                 {tiles}
                 <Pagination searchTerm={searchTerm} methods={this.props.methods} />
                 <hr />
@@ -57,8 +58,8 @@ function enableCarouselDisplay(properties) {
 
             // renders carousel main image as clicked tile
             ReactDOM.render(
-                <Carousel image={clickedImage} />,
-                document.querySelectorAll("carousel")[0]
+                <Carousel image={clickedImage} id={this.id} />,
+                document.getElementsByClassName("carousel")[0]
             );
 
         });

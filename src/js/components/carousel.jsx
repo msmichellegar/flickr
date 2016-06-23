@@ -17,79 +17,69 @@ var Carousel = React.createClass({
         );
     },
 
-    // componentDidMount: function() {
-    //     var leftArrowNode = document.querySelectorAll(".left");
-    //     var rightArrowNode = document.querySelectorAll(".right");
-    //     var properties = this.props;
-    //
-    //     var currentImageId = parseInt(document.getElementsByClassName("carousel-image")[0].id);
-    //
-    //     leftArrowNode[0].addEventListener("click", function() {
-    //         activateLeftArrow(properties, currentImageId);
-    //     });
-    //
-    //     rightArrowNode[0].addEventListener("click", function() {
-    //         activateRightArrow(properties, currentImageId);
-    //     });
-    //
-    // },
-    //
-    // componentWillReceiveProps: function(newProps) {
-    //     var leftArrowNode = document.querySelectorAll(".left");
-    //     var rightArrowNode = document.querySelectorAll(".right");
-    //     var properties = newProps;
-    //
-    //     var currentImageId = parseInt(document.getElementsByClassName("carousel-image")[0].id);
-    //
-    //     leftArrowNode[0].removeEventListener("click", activateLeftArrow);
-    //
-    //     leftArrowNode[0].addEventListener("click", function() {
-    //         activateLeftArrow(properties, currentImageId);
-    //     });
-    //
-    //     rightArrowNode[0].removeEventListener("click", activateRightArrow);
-    //
-    //     rightArrowNode[0].addEventListener("click", function() {
-    //         activateRightArrow(properties, currentImageId);
-    //     });
-    //
-    // }
+    componentDidMount: function() {
+        var leftArrowNode = document.querySelectorAll(".left");
+        var rightArrowNode = document.querySelectorAll(".right");
+        var properties = this.props;
+        var currentImageId;
+
+        leftArrowNode[0].addEventListener("click", function() {
+            currentImageId = document.getElementsByClassName("carousel-image")[0].id;
+
+            activateLeftArrow(properties, currentImageId);
+        });
+
+        rightArrowNode[0].addEventListener("click", function() {
+            currentImageId = document.getElementsByClassName("carousel-image")[0].id;
+
+            activateRightArrow(properties, currentImageId);
+        });
+
+    }
 
 });
 
 function activateLeftArrow(properties, currentImageId) {
-    var previousImageId;
+    var previousImageId = parseInt(currentImageId) - 1;
     var previousImage;
 
-    if (currentImageId === 0) {
-        previousImageId = "15";
+    if (previousImageId !== -1) {
+        previousImage = document.getElementById(previousImageId.toString()).src;
+
+        ReactDOM.render(
+            <Carousel image={previousImage} id={previousImageId} />,
+            document.getElementsByClassName("carousel")[0]
+        );
 
     } else {
-        previousImageId = parseInt(currentImageId -1);
+        previousImage = document.getElementById("14").src;
 
+        ReactDOM.render(
+            <Carousel image={previousImage} id="14" />,
+            document.getElementsByClassName("carousel")[0]
+        );
     }
-
-    console.log(currentImageId, previousImageId);
-
-    previousImage = document.getElementById(previousImageId).src;
-
-    ReactDOM.render(
-        <Carousel image={previousImage} id={previousImageId} />,
-        document.getElementById("carousel")
-    );
 }
 
 function activateRightArrow(properties, currentImageId) {
-    var nextImageId;
+    var nextImageId = parseInt(currentImageId) + 1;
     var nextImage;
 
-    console.log(currentImageId)
+    if (nextImageId !== 15) {
+        nextImage = document.getElementById(nextImageId.toString()).src;
 
-    if (currentImageId === 15) {
-        nextImageId = "0";
+        ReactDOM.render(
+            <Carousel image={nextImage} id={nextImageId} />,
+            document.getElementsByClassName("carousel")[0]
+        );
 
     } else {
+        nextImage = document.getElementById("0").src;
 
+        ReactDOM.render(
+            <Carousel image={nextImage} id="0" />,
+            document.getElementsByClassName("carousel")[0]
+        );
     }
 }
 

@@ -30,7 +30,8 @@ function addPaginationEventListeners(keyword, methods) {
     pageNodes.forEach(function(node) {
 
         node.addEventListener("click", function() {
-            var currentPage = parseInt(document.querySelectorAll(".grid")[0].id);
+            var currentPageId = document.querySelectorAll(".grid")[0].id;
+            var currentPageNumber = parseInt(currentPageId.split("-")[1]);
 
             // loads first page
             if (node.innerText === "<<") {
@@ -41,8 +42,8 @@ function addPaginationEventListeners(keyword, methods) {
             } else if (node.innerText === "<") {
                 var previousPage;
 
-                if (currentPage - 1 > 0) {
-                    previousPage = (currentPage -1).toString();
+                if (currentPageNumber - 1 > 0) {
+                    previousPage = (currentPageNumber -1).toString();
 
                     methods.getPhotos(previousPage, keyword);
                 }
@@ -51,8 +52,10 @@ function addPaginationEventListeners(keyword, methods) {
             } else if (node.innerText === ">") {
                 var nextPage;
 
-                if (currentPage + 1 !== 6) {
-                    nextPage = parseInt(currentPage +1);
+                if (currentPageNumber + 1 !== 6) {
+                    nextPage = parseInt(currentPageNumber +1);
+
+                    console.log(nextPage)
 
                     methods.getPhotos(nextPage.toString(), keyword);
                 }
