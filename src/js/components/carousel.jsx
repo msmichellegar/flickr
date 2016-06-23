@@ -1,18 +1,13 @@
 var React = require("react");
 var ReactDOM = require("react-dom");
 
-var methods = require("../methods/methods.js");
-
-var ShareButton = require("./sharebutton.js");
-
-console.log("in carousel", methods)
-
+var ShareButton = require("./sharebutton.jsx");
 
 var Carousel = React.createClass({
     render: function() {
 
         return (
-            <div id="carousel">
+            <div className="carousel">
                 <img className="arrow left" src="../public/images/left-arrow.svg" />
                 <img className="carousel-image" src={this.props.image} id={this.props.id} />
                 <img className="arrow right" src="../public/images/right-arrow.svg" />

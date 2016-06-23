@@ -76,19 +76,19 @@ nav {
     position: absolute;
     top: 63px; }
 
-#carousel {
+.carousel {
   background: linear-gradient(to top, black 50%, #660800 50%);
   margin-bottom: 80px; }
-  #carousel .carousel-image {
+  .carousel .carousel-image {
     height: 60vh;
     max-width: 60%; }
-  #carousel .arrow {
+  .carousel .arrow {
     cursor: pointer;
     height: 50px;
     margin: 10px;
     position: relative;
     top: -25vh; }
-  #carousel hr {
+  .carousel hr {
     width: 85%; }
 
 .share-button {
@@ -146,10 +146,10 @@ nav {
     color: #FCB712;
     cursor: pointer; }
 
-#grid {
+.grid {
   margin: 0 10px 80px 10px;
   text-align: center; }
-  #grid hr {
+  .grid hr {
     margin-top: 20px;
     width: 85%; }
 

@@ -1,10 +1,6 @@
 var React = require("react");
 var ReactDOM = require("react-dom");
 
-var methods = require("../methods/methods.js");
-
-console.log("in share", methods);
-
 var ShareButton = React.createClass({
 
     render: function() {

@@ -1,8 +1,8 @@
 var React = require("react");
 var ReactDOM = require("react-dom");
 
-var Carousel = require("../components/carousel.js");
-var Grid = require("../components/grid.js");
+var Carousel = require("../components/carousel.jsx");
+var Grid = require("../components/grid.jsx");
 
 var methods = {
 
@@ -28,6 +28,7 @@ var methods = {
     getPhotoUrls: function getPhotoUrls(data, keyword) {
         var photoData = data.photos.photo;
         var urls = [];
+        var pageNumber = data.photos.page;
 
         for (var i=0; i < photoData.length; i++) {
             var url = "https://farm" + photoData[i].farm + ".staticflickr.com/" + photoData[i].server + "/" + photoData[i].id + "_" + photoData[i].secret + ".jpg";
@@ -35,16 +36,7 @@ var methods = {
             urls.push(url);
         }
 
-        methods.renderGrid(urls, keyword);
-
-    },
-
-    renderGrid: function renderGrid(urls, keyword) {
-
-        ReactDOM.render(
-          <Grid images={urls} theme={keyword} />,
-          document.getElementById("images")
-        );
+        methods.renderGrid(urls, keyword, pageNumber);
 
     },
 
@@ -54,10 +46,19 @@ var methods = {
 
         ReactDOM.render(
             <Carousel image={firstPhotoUrl} id="0" />,
-            document.getElementById("carousel")
+            document.getElementsByClassName("carousel")[0]
         );
+    },
+
+    renderGrid: function renderGrid(urls, keyword, pageNumber) {
+
+        ReactDOM.render(
+          <Grid pageNumber={pageNumber} images={urls} theme={keyword} methods={methods} />,
+          document.getElementById("images")
+        );
+
     }
 
-};
+}
 
 module.exports = methods;

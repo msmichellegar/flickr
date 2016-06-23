@@ -1,9 +1,8 @@
 var React = require("react");
 var ReactDOM = require("react-dom");
 
-var methods = require("../methods/methods.js");
-
-console.log("in pagination", methods)
+var Carousel = require("../components/carousel.jsx");
+var Grid = require("../components/grid.jsx");
 
 var Pagination = React.createClass({
     render: function() {
@@ -20,21 +19,18 @@ var Pagination = React.createClass({
         var keyword = this.props.searchTerm;
         var currentPageNumber;
 
-        addPaginationEventListeners(keyword);
-
-    },
-
-    componentWillReceiveProps: function(newProps) {
+        addPaginationEventListeners(keyword, this.props.methods);
 
     }
 });
 
-function addPaginationEventListeners(keyword) {
+function addPaginationEventListeners(keyword, methods) {
     var pageNodes = document.querySelectorAll(".pagination a");
 
     pageNodes.forEach(function(node) {
 
         node.addEventListener("click", function() {
+            var currentPage = parseInt(document.querySelectorAll(".grid")[0].id);
 
             // loads first page
             if (node.innerText === "<<") {
@@ -43,13 +39,23 @@ function addPaginationEventListeners(keyword) {
 
             // loads previous page
             } else if (node.innerText === "<") {
-                console.log("previous");
+                var previousPage;
 
-                methods.getPhotos("1", keyword);
+                if (currentPage - 1 > 0) {
+                    previousPage = (currentPage -1).toString();
+
+                    methods.getPhotos(previousPage, keyword);
+                }
 
             // loads next page
             } else if (node.innerText === ">") {
-                console.log("next");
+                var nextPage;
+
+                if (currentPage + 1 !== 6) {
+                    nextPage = parseInt(currentPage +1);
+
+                    methods.getPhotos(nextPage.toString(), keyword);
+                }
 
             // loads last page
             } else if (node.innerText === ">>") {

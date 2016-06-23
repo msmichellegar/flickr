@@ -1,30 +1,28 @@
 var React = require("react");
 var ReactDOM = require("react-dom");
 
-var methods = require("../methods/methods.js");
-
-var Tile = require("./tile.js");
-var Carousel = require("./carousel.js");
-var Pagination = require("./pagination.js");
-
-console.log("in grid", methods)
+var Tile = require("./tile.jsx");
+var Carousel = require("./carousel.jsx");
+var Pagination = require("./pagination.jsx");
 
 var Grid = React.createClass({
 
     render: function() {
         var arrayOfImages = this.props.images;
         var counter = -1;
+        var searchTerm = this.props.theme;
 
-        var tiles = arrayOfImages.map(function(arrayImage) {
+
+        var tiles = arrayOfImages.map(function(arrayImage, searchTerm) {
             counter++;
 
-            return <Tile image={arrayImage} key={counter} id={counter} />
+            return <Tile image={arrayImage} key={counter} id={counter} searchTerm={searchTerm} />;
         });
 
         return (
-            <div id="grid">
+            <div className="grid" id={this.props.pageNumber}>
                 {tiles}
-                <Pagination searchTerm={this.props.theme} />
+                <Pagination searchTerm={searchTerm} methods={this.props.methods} />
                 <hr />
             </div>
         );
@@ -60,7 +58,7 @@ function enableCarouselDisplay(properties) {
             // renders carousel main image as clicked tile
             ReactDOM.render(
                 <Carousel image={clickedImage} />,
-                document.getElementById("carousel")
+                document.querySelectorAll("carousel")[0]
             );
 
         });

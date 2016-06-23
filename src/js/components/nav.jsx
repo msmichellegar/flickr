@@ -1,15 +1,9 @@
 var React = require("react");
 var ReactDOM = require("react-dom");
 
-var methods = require("../methods/methods.js");
-
-console.log("in nav", methods)
-
-
 var Nav = React.createClass({
 
     render: function() {
-
 
         return (
             <nav>
@@ -23,12 +17,12 @@ var Nav = React.createClass({
 
     componentDidMount() {
 
-        addSearchEventListener();
+        addSearchEventListener(this.props.methods);
     }
 
 });
 
-function addSearchEventListener() {
+function addSearchEventListener(methods) {
     var searchNode = document.getElementById("search");
 
     searchNode.addEventListener("keydown", function(event){

@@ -2,7 +2,7 @@ var webpack = require("webpack");
 
 var config = {
     entry: {
-        javascript: __dirname + "/src/js/app.js"
+        javascript: __dirname + "/src/js/app.jsx"
     },
     output: {
         path: __dirname + "/public/js/",
