@@ -64,6 +64,8 @@ nav {
   padding: 25px 50px; }
   nav h1 {
     color: #FCB712; }
+  nav label {
+    display: none; }
   nav input[type="text"] {
     height: 30px;
     font-size: 18px;

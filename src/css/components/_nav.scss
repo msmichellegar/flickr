@@ -9,6 +9,10 @@ nav {
         color: $yellow;
     }
 
+    label {
+        display: none;
+    }
+
     input[type="text"] {
         height: 30px;
         font-size: 18px;

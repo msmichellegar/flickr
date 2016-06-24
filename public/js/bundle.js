@@ -20460,9 +20460,9 @@
 	        return React.createElement(
 	            "div",
 	            { className: "carousel" },
-	            React.createElement("img", { className: "arrow left", src: "../public/images/left-arrow.svg" }),
+	            React.createElement("img", { className: "arrow left", alt: "left arrow", src: "../public/images/left-arrow.svg" }),
 	            React.createElement("img", { className: "carousel-image", src: this.props.image, id: this.props.id }),
-	            React.createElement("img", { className: "arrow right", src: "../public/images/right-arrow.svg" }),
+	            React.createElement("img", { className: "arrow right", alt: "right arrow", src: "../public/images/right-arrow.svg" }),
 	            React.createElement(ShareButton, null),
 	            React.createElement("hr", null)
 	        );
@@ -20557,7 +20557,7 @@
 	                            null,
 	                            "0"
 	                        ),
-	                        React.createElement("img", { src: "https://g.twimg.com/about/feature-corporate/image/tweetbutton.png" })
+	                        React.createElement("img", { src: "https://g.twimg.com/about/feature-corporate/image/tweetbutton.png", alt: "twitter share button" })
 	                    ),
 	                    React.createElement(
 	                        "div",
@@ -20567,7 +20567,7 @@
 	                            null,
 	                            "246"
 	                        ),
-	                        React.createElement("img", { src: "http://4.bp.blogspot.com/-U9NlRJ5La5U/VT1Pm4IyhbI/AAAAAAAABrg/NhlQ0M_OT8I/s1600/share-button.png" })
+	                        React.createElement("img", { src: "http://4.bp.blogspot.com/-U9NlRJ5La5U/VT1Pm4IyhbI/AAAAAAAABrg/NhlQ0M_OT8I/s1600/share-button.png", alt: "facebook share button" })
 	                    ),
 	                    React.createElement(
 	                        "div",
@@ -20577,7 +20577,7 @@
 	                            null,
 	                            "10"
 	                        ),
-	                        React.createElement("img", { src: "http://3.bp.blogspot.com/-vRtr0HwWUxM/VXqTT_uO51I/AAAAAAAAfQU/9KQiFP_5rgw/s1600/Red-signin_Google_base_44dp.png" })
+	                        React.createElement("img", { src: "http://3.bp.blogspot.com/-vRtr0HwWUxM/VXqTT_uO51I/AAAAAAAAfQU/9KQiFP_5rgw/s1600/Red-signin_Google_base_44dp.png", alt: "google+ share button" })
 	                    )
 	                ),
 	                React.createElement("div", { className: "arrow-down" })
@@ -20864,8 +20864,13 @@
 	                null,
 	                "Photos"
 	            ),
-	            React.createElement("input", { type: "text", placeholder: "Search", id: "search" }),
-	            React.createElement("img", { src: "../public/images/search-icon.svg" })
+	            React.createElement(
+	                "label",
+	                { "for": "search" },
+	                "Search:"
+	            ),
+	            React.createElement("input", { type: "text", placeholder: "Search", id: "search", name: "search" }),
+	            React.createElement("img", { src: "../public/images/search-icon.svg", alt: "search icon" })
 	        );
 	    },
 

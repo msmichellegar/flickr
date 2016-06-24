@@ -8,9 +8,9 @@ var Carousel = React.createClass({
 
         return (
             <div className="carousel">
-                <img className="arrow left" src="../public/images/left-arrow.svg" />
+                <img className="arrow left" alt="left arrow" src="../public/images/left-arrow.svg" />
                 <img className="carousel-image" src={this.props.image} id={this.props.id} />
-                <img className="arrow right" src="../public/images/right-arrow.svg" />
+                <img className="arrow right" alt="right arrow" src="../public/images/right-arrow.svg" />
                 <ShareButton />
                 <hr />
             </div>

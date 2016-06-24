@@ -8,8 +8,9 @@ var Nav = React.createClass({
         return (
             <nav>
                 <h1>Photos</h1>
-                <input type="text" placeholder="Search" id="search" />
-                <img src="../public/images/search-icon.svg" />
+                <label for="search">Search:</label>
+                <input type="text" placeholder="Search" id="search" name="search" />
+                <img src="../public/images/search-icon.svg" alt="search icon" />
             </nav>
         );
 
