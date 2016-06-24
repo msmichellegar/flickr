@@ -41,7 +41,3 @@ jspm_packages
 
 # Environment variables
 .env
-
-test*
-client-tests.js
-server-tests.js

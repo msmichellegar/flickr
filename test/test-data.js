@@ -1,0 +1,5 @@
+var testArray = [
+    "https://farm8.staticflickr.com/7463/27801468941_397cf354be.jpg", "https://farm8.staticflickr.com/7392/27265837624_572616c32f.jpg", "https://farm8.staticflickr.com/7740/27265787974_75f7c82757.jpg", "https://farm8.staticflickr.com/7445/27265625193_812210b475.jpg", "https://farm8.staticflickr.com/7304/27776508822_34647a2ce0.jpg", "https://farm8.staticflickr.com/7481/27877143475_f3f42ffffa.jpg", "https://farm8.staticflickr.com/7534/27265534873_a112c86886.jpg", "https://farm8.staticflickr.com/7529/27876515725_5b6f7ec949.jpg", "https://farm8.staticflickr.com/7415/27842373186_28f95e210d.jpg", "https://farm8.staticflickr.com/7551/27264724144_0f8045a2e6.jpg", "https://farm8.staticflickr.com/7702/27800403141_27f8e346dc.jpg", "https://farm8.staticflickr.com/7704/27264331064_235b1b0a85.jpg", "https://farm8.staticflickr.com/7232/27875909475_be547a5de3.jpg", "https://farm8.staticflickr.com/7262/27775185782_95c1c84172.jpg", "https://farm8.staticflickr.com/7379/27263588314_46ded829c6.jpg"
+];
+
+module.exports = testArray;

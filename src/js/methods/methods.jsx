@@ -36,6 +36,8 @@ var methods = {
             urls.push(url);
         }
 
+        console.log(urls)
+
         methods.renderGrid(urls, keyword, pageNumber);
 
     },
