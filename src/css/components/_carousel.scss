@@ -5,6 +5,11 @@
     .carousel-image {
         height: 60vh;
         max-width: 60%;
+
+        @media (max-width: 750px) {
+            height: 250px;
+            max-width: 70%;
+        }
     }
 
     .arrow {
@@ -13,9 +18,24 @@
         margin: 10px;
         position: relative;
         top: -25vh;
+
+        @media (max-width: 750px) {
+            position: absolute;
+            top: 250px;
+        }
     }
 
     hr {
         width: 85%;
+    }
+
+    @media (max-width: 750px) {
+        .left {
+            left: 20px;
+        }
+
+        .right {
+            right: 20px;
+        }
     }
 }

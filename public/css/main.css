@@ -59,16 +59,22 @@ hr {
 nav {
   align-items: center;
   display: flex;
-  height: 100px;
+  flex-wrap: wrap;
+  min-height: 100px;
   justify-content: space-between;
   padding: 25px 50px; }
   nav h1 {
-    color: #FCB712; }
+    color: #FCB712;
+    margin-right: 50px; }
+    @media (max-width: 750px) {
+      nav h1 {
+        margin: 0 auto; } }
   nav label {
     display: none; }
   nav input[type="text"] {
     height: 30px;
     font-size: 18px;
+    margin: 10px 0;
     padding: 5px 40px 5px 15px;
     width: 350px; }
   nav img {
@@ -76,6 +82,9 @@ nav {
     right: 60px;
     position: absolute;
     top: 63px; }
+    @media (max-width: 750px) {
+      nav img {
+        display: none; } }
 
 .carousel {
   background: linear-gradient(to top, black 50%, #660800 50%);
@@ -83,14 +92,27 @@ nav {
   .carousel .carousel-image {
     height: 60vh;
     max-width: 60%; }
+    @media (max-width: 750px) {
+      .carousel .carousel-image {
+        height: 250px;
+        max-width: 70%; } }
   .carousel .arrow {
     cursor: pointer;
     height: 50px;
     margin: 10px;
     position: relative;
     top: -25vh; }
+    @media (max-width: 750px) {
+      .carousel .arrow {
+        position: absolute;
+        top: 250px; } }
   .carousel hr {
     width: 85%; }
+  @media (max-width: 750px) {
+    .carousel .left {
+      left: 20px; }
+    .carousel .right {
+      right: 20px; } }
 
 .share-button {
   display: flex;
@@ -168,6 +190,15 @@ nav {
     height: 200px;
     object-fit: cover;
     width: 200px; }
+    @media (max-width: 750px) {
+      .tile img {
+        height: 120px;
+        width: 120px; } }
+  @media (max-width: 750px) {
+    .tile {
+      height: 120px;
+      margin: 10px;
+      width: 120px; } }
 
 .pagination {
   font-size: 20px;

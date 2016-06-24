@@ -15,5 +15,16 @@
         height: 200px;
         object-fit: cover;
         width: 200px;
+
+        @media (max-width: 750px) {
+            height: 120px;
+            width: 120px;
+        }
+    }
+
+    @media (max-width: 750px) {
+        height: 120px;
+        margin: 10px;
+        width: 120px;
     }
 }

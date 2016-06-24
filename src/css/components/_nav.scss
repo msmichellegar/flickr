@@ -1,12 +1,18 @@
 nav {
     align-items: center;
     display: flex;
-    height: 100px;
+    flex-wrap: wrap;
+    min-height: 100px;
     justify-content: space-between;
     padding: 25px 50px;
 
     h1 {
         color: $yellow;
+        margin-right: 50px;
+
+        @media (max-width: 750px) {
+            margin: 0 auto;
+        }
     }
 
     label {
@@ -16,6 +22,7 @@ nav {
     input[type="text"] {
         height: 30px;
         font-size: 18px;
+        margin: 10px 0;
         padding: 5px 40px 5px 15px;
         width: 350px;
     }
@@ -25,5 +32,9 @@ nav {
         right: 60px;
         position: absolute;
         top: 63px;
+
+        @media (max-width: 750px) {
+            display: none;
+        }
     }
 }
