@@ -10,7 +10,7 @@
         visibility: hidden;
 
         .social-buttons {
-            background-color: #660800;
+            background-color: $maroon;
             display: flex;
             justify-content: center;
             left: 90px;
@@ -41,7 +41,7 @@
         .arrow-down {
             border-left: 20px solid transparent;
             border-right: 20px solid transparent;
-            border-top: 20px solid #660800;
+            border-top: 20px solid $maroon;
             height: 0;
             left: 280px;
             position: relative;
@@ -56,7 +56,7 @@
     }
 
     button {
-        background-color: #660800;
+        background-color: $maroon;
         border: none;
         color: white;
         display: block;
@@ -69,7 +69,7 @@
     }
 
     button:hover {
-        color: #FCB712;
+        color: $yellow;
         cursor: pointer;
     }
 }

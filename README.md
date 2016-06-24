@@ -1,15 +1,17 @@
 # Flickr Project
 
-A reusable module that displays and allows users to search for images from Flickr. A prototype that will then be developed further by an offshore team.
+This is a reusable module that allows users to search for images from Flickr, able to be further developed by an offshore team.
+
+### Features
+
+* Photos are returned using the Flickr API for any given keyword
+* Flickr results are searchable and paginated
+* The module is able to be reused multiple times on the same page
+* Smaller parts of this module are also able to be reused on the same page
 
 ### Tech Stack
 
-The tech stack is as follows:
-* Node.js backend
-* Hapi.js (+ Inert)
-* React.js
-* SASS for CSS
-* Tape for testing
+This app is built with *React* on the front-end for dynamic rendering. SASS has also been used on the front-end. The back-end is built in *Node.js*, using *Hapi.js* as a configuration framework, and *Inert* for serving static files. Tests have been written client and server-side in *Tape*, with *Enzyme* used specifically for testing React.
 
 ### Requirements
 

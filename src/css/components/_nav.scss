@@ -6,7 +6,7 @@ nav {
     padding: 25px 50px;
 
     h1 {
-        color: #FCB712;
+        color: $yellow;
     }
 
     input[type="text"] {
@@ -17,7 +17,6 @@ nav {
     }
 
     img {
-        fill: #660800;
         height: 25px;
         right: 60px;
         position: absolute;
