@@ -27,4 +27,5 @@ ReactDOM.render(
   document.getElementById("app")
 );
 
+// initialises page
 methods.getPhotos("1", "puppy");
