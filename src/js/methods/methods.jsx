@@ -31,7 +31,7 @@ var methods = {
         var pageNumber = data.photos.page;
 
         for (var i=0; i < photoData.length; i++) {
-            var url = "https://farm" + photoData[i].farm + ".staticflickr.com/" + photoData[i].server + "/" + photoData[i].id + "_" + photoData[i].secret + "_n.jpg";
+            var url = "https://farm" + photoData[i].farm + ".staticflickr.com/" + photoData[i].server + "/" + photoData[i].id + "_" + photoData[i].secret + "_m.jpg";
 
             urls.push(url);
         }
@@ -42,7 +42,7 @@ var methods = {
 
     renderCarousel: function renderCarousel(data) {
         var photoData = data.photos.photo;
-        var firstPhotoUrl = "https://farm" + photoData[0].farm + ".staticflickr.com/" + photoData[0].server + "/" + photoData[0].id + "_" + photoData[0].secret + ".jpg";
+        var firstPhotoUrl = "https://farm" + photoData[0].farm + ".staticflickr.com/" + photoData[0].server + "/" + photoData[0].id + "_" + photoData[0].secret + "_n.jpg";
 
         ReactDOM.render(
             <Carousel image={firstPhotoUrl} id="0" />,
