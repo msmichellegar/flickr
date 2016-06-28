@@ -1,6 +1,7 @@
 .carousel {
     background: linear-gradient(to top, black 50%, $maroon 50%);
     margin-bottom: 80px;
+    overflow: visible;
 
     .carousel-image {
         height: 400px;

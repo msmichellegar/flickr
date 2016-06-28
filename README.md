@@ -42,7 +42,10 @@ Pains have been taken to ensure this module takes into account accessibility. Th
 This project has been checked against [Google PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/). Measures taken to improve performance include:
 
 * JavaScript is minified with the Webpack build
-* Images fetched from the Flickr API use a suffix to ensure the file is not too large
+* Script tags are placed at end of the HTML
+* Images fetched from the Flickr API use a suffix to ensure the file is not too large, and this is dynamic for the grid and carousel components
+
+In the future, I'd be interested to explore server-side rendering as a way of optimising the application's performance.
 
 ## Running this Project
 

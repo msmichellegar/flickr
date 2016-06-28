@@ -88,7 +88,8 @@ nav {
 
 .carousel {
   background: linear-gradient(to top, black 50%, #660800 50%);
-  margin-bottom: 80px; }
+  margin-bottom: 80px;
+  overflow: visible; }
   .carousel .carousel-image {
     height: 400px;
     max-width: 60%; }
@@ -168,6 +169,9 @@ nav {
   .share-button button:hover {
     color: #FCB712;
     cursor: pointer; }
+  @media (max-width: 750px) {
+    .share-button {
+      max-width: 85%; } }
 
 .grid {
   margin: 0 10px 80px 10px;
