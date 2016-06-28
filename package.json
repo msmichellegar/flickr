@@ -10,7 +10,7 @@
     "test": "node test/server-tests.js && tape -r babel-register test/client-tests.js",
     "sass": "sass --watch src/css/main.scss:public/css/main.css",
     "build": "webpack --watch --optimize-minimize",
-    "dev": "webpack-dev-server --hot --inline",
+    "dev": "nodemon server.js",
     "start": "node server.js"
   },
   "repository": {

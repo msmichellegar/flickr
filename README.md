@@ -1,28 +1,95 @@
-# Flickr Project
+# Flickr Gallery
 
-This is a reusable module that allows users to search for images from Flickr, able to be further developed by an offshore team.
+This is a React component that allows users to search for and view images from Flickr. This module is able to be reused multiple times on the same page, and smaller parts of the module are also reusable.
 
-### Features
+This is actually my first ever project built in React. I chose React for its strengths in dynamic rendering with the virtual DOM, and also for its easy approach to creating a reusable piece of code. This module could easily be developed further by modifying its components and the states in which they render.
+
+## Tech Stack
+
+This app is built with *React* on the front-end for dynamic rendering. Source files are bundled together with *Webpack*. *SASS* has been used for writing CSS. The back-end is built in *Node.js*, using *Hapi.js* as a configuration framework, and *Inert* for serving static files. Tests have been written client and server-side in *Tape*, with *Enzyme* integrated for testing React. The project is deployed to *Heroku*.
+
+## Features
+
+The gallery component has the following features:
 
 * Photos are returned using the Flickr API for any given keyword
 * Flickr results are searchable and paginated
-* The module is able to be reused multiple times on the same page
-* Smaller parts of this module are also able to be reused on the same page
+* Results are displayed in both a grid and in a carousel
+* A share button is displayed below the carousel on hover
 
-### Tech Stack
+## Components
 
-This app is built with *React* on the front-end for dynamic rendering. SASS has also been used on the front-end. The back-end is built in *Node.js*, using *Hapi.js* as a configuration framework, and *Inert* for serving static files. Tests have been written client and server-side in *Tape*, with *Enzyme* used specifically for testing React.
+The gallery has been broken up into the following mini-components, which can each be reused multiple times as necessary:
 
-### Requirements
+* *Navigation:* where users can input keywords in the search box
+* *Carousel:* where one image at a time is displayed full size
+    * *Share button:* where users have the option to share the current image displayed in the carousel
+* *Grid:* where one page of 15 results at a time is displayed for the current search
+    * *Tile:* where a single image from the search reuslts is displayed inside the grid
+    * *Pagination:* where the user can navigate up to 6 pages of search results
 
-* The module must be able to be used in multiple locations on the same page.
-* The results should be searchable and pageable.
-* A README.md file that gives a brief overview of your solution and highlights any part you wish to draw attention to.
+## Accessibility
 
-### Notes
+Pains have been taken to ensure this module takes into account accessibility. The site has been checked against [AChecker](http://achecker.ca/) and [WAVE](http://wave.webaim.org/) standards. Accessibility features include:
 
-* Consideration for best practice - accessibility, performance, progressive enhancement, etc. - is expected.
-* If you must use a plugin or library please include a clear description of why it is needed.
-* Please only create the social tooltip as a placeholder, you do not need to integrate the social behaviour.
+* Document language is defined for screen readers in the `index.html` head
+* A `<nav>` tag and `<h1>` tag are present to guide the structure of the page
+* Alt text has been added to all images on the site, including icons
+* The input box has a corresponding label for screen readers
+
+## Running this Project
+
+You can check out a live version of this project hosted on Heroku [here](http://flickr-search.herokuapp.com). Or if you'd like to run the project locally, follow these steps:
+
+###### 1. Clone this repository
+
+Clone this repository to your local machine using the following command:
+
+```
+$ git clone https://github.com/msmichellegar/flickr.git
+```
+
+###### 2. Obtain and set environment variables
+
+You will need Flickr API keys to run this project. Obtain them [here](https://www.flickr.com/services/api/). Once you have a public and secret key for the Flickr API, set them in the terminal using the following commands:
+
+```
+$ export FLICKR_KEY=[your public key]
+$ export FLICKR_SECRET=[your secret key]
+```
+
+###### 3. Run the tests
+
+To ensure the project is functioning correctly, run the tests with the following command:
+
+```
+$ npm run test
+```
+
+###### 4. Start the server
+
+To start the server in development mode, run this command:
+
+```
+$ npm run dev
+```
+
+###### Optional: Run build scripts
+
+If you are making edits to the React source files, you will want to run the webpack build command in another terminal window:
+
+```
+$ npm run build
+```
+
+And if you are making edits to the SASS files, you will also want to run the following command in another terminal window:
+
+```
+$ npm run sass
+```
+
+
+
+*Notes*
 * Please include a brief description of your solution and what decisions you made in its creation.
 * Please package (rar) your solution and ensure your name forms part of the package file name.
