@@ -90,7 +90,7 @@ nav {
   background: linear-gradient(to top, black 50%, #660800 50%);
   margin-bottom: 80px; }
   .carousel .carousel-image {
-    height: 60vh;
+    height: 400px;
     max-width: 60%; }
     @media (max-width: 750px) {
       .carousel .carousel-image {

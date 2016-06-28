@@ -31,12 +31,10 @@ var methods = {
         var pageNumber = data.photos.page;
 
         for (var i=0; i < photoData.length; i++) {
-            var url = "https://farm" + photoData[i].farm + ".staticflickr.com/" + photoData[i].server + "/" + photoData[i].id + "_" + photoData[i].secret + "_z.jpg";
+            var url = "https://farm" + photoData[i].farm + ".staticflickr.com/" + photoData[i].server + "/" + photoData[i].id + "_" + photoData[i].secret + "_n.jpg";
 
             urls.push(url);
         }
-
-        console.log(urls)
 
         methods.renderGrid(urls, keyword, pageNumber);
 
