@@ -31,7 +31,7 @@ var methods = {
         var pageNumber = data.photos.page;
 
         for (var i=0; i < photoData.length; i++) {
-            var url = "https://farm" + photoData[i].farm + ".staticflickr.com/" + photoData[i].server + "/" + photoData[i].id + "_" + photoData[i].secret + ".jpg";
+            var url = "https://farm" + photoData[i].farm + ".staticflickr.com/" + photoData[i].server + "/" + photoData[i].id + "_" + photoData[i].secret + "_z.jpg";
 
             urls.push(url);
         }

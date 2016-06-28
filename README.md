@@ -37,6 +37,13 @@ Pains have been taken to ensure this module takes into account accessibility. Th
 * Alt text has been added to all images on the site, including icons
 * The input box has a corresponding label for screen readers
 
+## Performance
+
+This project has been checked against [Google PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/). Measures taken to improve performance include:
+
+* JavaScript is minified with the Webpack build
+* Images fetched from the Flickr API use a suffix to ensure the file is not too large
+
 ## Running this Project
 
 You can check out a live version of this project hosted on Heroku [here](http://flickr-search.herokuapp.com). Or if you'd like to run the project locally, follow these steps:
@@ -68,7 +75,7 @@ $ npm run test
 
 ###### 4. Start the server
 
-To start the server in development mode, run this command:
+To start the server in development mode, run this command, and navigate to http://localhost:8080/
 
 ```
 $ npm run dev
