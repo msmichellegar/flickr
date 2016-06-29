@@ -19,7 +19,7 @@ The gallery component has the following features:
 
 ## Components
 
-The gallery has been broken up into the following mini-components, which can each be reused multiple times as necessary:
+The gallery has been broken up into the following mini-components and sub-components, which can each be reused multiple times as necessary:
 
 * *Navigation:* where users can input keywords in the search box
 * *Carousel:* where one image at a time is displayed full size
@@ -46,6 +46,10 @@ This project has been checked against [Google PageSpeed Insights](https://develo
 * Images fetched from the Flickr API use a suffix to ensure the file is not too large, and this is dynamic for the grid and carousel components
 
 In the future, I'd be interested to explore server-side rendering as a way of optimising the application's performance.
+
+## Progressive Enhancement
+
+Styling is optimised across all devices, with a functional view at every screen width. I have achieved this with media queries that adjust styling at a certain point. Views have been tested in Chrome dev tools.
 
 ## Running this Project
 

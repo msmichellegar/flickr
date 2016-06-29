@@ -88,8 +88,7 @@ nav {
 
 .carousel {
   background: linear-gradient(to top, black 50%, #660800 50%);
-  margin-bottom: 80px;
-  overflow: visible; }
+  margin-bottom: 80px; }
   .carousel .carousel-image {
     height: 400px;
     max-width: 60%; }
@@ -120,6 +119,7 @@ nav {
   justify-content: flex-end;
   height: 50px;
   margin: 10px auto;
+  overflow: visible;
   text-align: right;
   width: 60%; }
   .share-button .share-button-hover {
