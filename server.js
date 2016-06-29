@@ -1,9 +1,8 @@
-var Hapi = require('hapi');
-var Inert = require('inert');
-var routes = require('./lib/routes.js');
+var Hapi = require("hapi");
+var Inert = require("inert");
+var routes = require("./lib/routes.js");
 
 var server = new Hapi.Server();
-
 
 server.register(Inert, function () {
     server.connection({
@@ -13,7 +12,7 @@ server.register(Inert, function () {
 });
 
 server.start(function() {
-    console.log('Server running at: ' + server.info.uri + '!');
+    console.log("Server running at: " + server.info.uri + "!");
 });
 
 module.exports = server;

@@ -52,7 +52,7 @@ function enableCarouselDisplay(properties) {
 
     for (var i=0; i < tileNodes.length; i++) {
 
-        // captures click event and determines image clicked on
+        // on click
         tileNodes[i].addEventListener("click", function() {
             var clickedImage = properties.images[this.id];
 

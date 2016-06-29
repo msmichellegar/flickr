@@ -8,9 +8,6 @@ var config = {
         path: __dirname + "/public/js/",
         filename: "bundle.js"
     },
-    devServer: {
-        hot: true
-    },
     watch: true,
     module: {
         loaders: [

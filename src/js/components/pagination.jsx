@@ -24,21 +24,24 @@ var Pagination = React.createClass({
     }
 });
 
+// adds event listeners for navigating pages with button
 function addPaginationEventListeners(keyword, methods) {
     var pageNodes = document.querySelectorAll(".pagination a");
 
+    // adds event listener to each button
     pageNodes.forEach(function(node) {
 
+        // on click
         node.addEventListener("click", function() {
             var currentPageId = document.querySelectorAll(".grid")[0].id;
             var currentPageNumber = parseInt(currentPageId.split("-")[1]);
 
-            // loads first page
+            // << loads first page
             if (node.innerText === "<<") {
 
                 methods.getPhotos("1", keyword);
 
-            // loads previous page
+            // < loads previous page
             } else if (node.innerText === "<") {
                 var previousPage;
 
@@ -48,7 +51,7 @@ function addPaginationEventListeners(keyword, methods) {
                     methods.getPhotos(previousPage, keyword);
                 }
 
-            // loads next page
+            // > loads next page
             } else if (node.innerText === ">") {
                 var nextPage;
 
@@ -60,12 +63,12 @@ function addPaginationEventListeners(keyword, methods) {
                     methods.getPhotos(nextPage.toString(), keyword);
                 }
 
-            // loads last page
+            // >> loads last page
             } else if (node.innerText === ">>") {
 
                 methods.getPhotos("6", keyword);
 
-            // loads specific page number
+            // number loads specific page
             } else {
 
                 methods.getPhotos(node.innerText, keyword);
