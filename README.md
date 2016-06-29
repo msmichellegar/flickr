@@ -49,7 +49,7 @@ In the future, I'd be interested to explore server-side rendering as a way of op
 
 ## Progressive Enhancement
 
-Styling is optimised across all devices, with a functional view at every screen width. I have achieved this with media queries that adjust styling at a certain point. Views have been tested in Chrome dev tools.
+Styling is optimised across all devices, with a functional view at every screen width. Media queries adjust styling at 750px. Mobile views have been tested in Chrome dev tools.
 
 ## Running this Project
 
@@ -101,9 +101,3 @@ And if you are making edits to the SASS files, you will also want to run the fol
 ```
 $ npm run sass
 ```
-
-
-
-*Notes*
-* Please include a brief description of your solution and what decisions you made in its creation.
-* Please package (rar) your solution and ensure your name forms part of the package file name.

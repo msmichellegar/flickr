@@ -23,14 +23,18 @@ var Nav = React.createClass({
 
 });
 
+// adds event listeners for input into search box
 function addSearchEventListener(methods) {
     var searchNode = document.getElementById("search");
 
+    // on keydown
     searchNode.addEventListener("keydown", function(event){
 
+        // if enter button is pressed
         if (event.keyCode === 13) {
             var searchTerm = searchNode.value;
 
+            // gets photos from Flickr and triggers rerender of carousel/grid
             methods.getPhotos("1", searchTerm);
 
         }

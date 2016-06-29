@@ -1,4 +1,4 @@
-const React = require("react");
+var React = require("react");
 var ReactDOM = require("react-dom");
 
 var methods = require("./methods/methods.jsx");
@@ -22,6 +22,7 @@ var App = React.createClass({
 
 });
 
+// renders <App />
 ReactDOM.render(
   <App />,
   document.getElementById("app")
