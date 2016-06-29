@@ -21,3 +21,13 @@ test("'/api/{path*}' returns 200 statusCode", function(t) {
         t.end();
     });
 });
+
+test("FLICKR_KEY is defined'", function (t) {
+    t.notEqual(process.env.FLICKR_KEY, undefined, "FLICKR_KEY set");
+    t.end();
+});
+
+test("FLICKR_KEY is defined'", function (t) {
+    t.notEqual(process.env.FLICKR_KEY, undefined, "FLICKR_SECRET set");
+    t.end();
+});

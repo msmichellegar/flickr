@@ -9,6 +9,8 @@ var Pagination = require("../src/js/components/pagination.jsx");
 var ShareButton = require("../src/js/components/sharebutton.jsx");
 var Tile = require("../src/js/components/tile.jsx");
 
+var methods = require("../src/js/methods/methods.jsx");
+
 var testData = require("./test-data.js");
 
 test("'<Nav />' renders", function(t) {
@@ -28,7 +30,7 @@ test("'<Carousel />' renders", function(t) {
 });
 
 test("'<Grid />' renders", function(t) {
-    var grid = enzyme.shallow(<Grid theme="kittens" images={testData} />);
+    var grid = enzyme.shallow(<Grid theme="kittens" images={testData.urls} />);
     var children = grid.children().nodes;
 
     t.equal(children.length > 0, true, "grid renders");
@@ -56,5 +58,19 @@ test("'<Tile />' renders", function(t) {
     var children = tile.children().nodes;
 
     t.equal(children.length > 0, true, "tile renders");
+    t.end();
+});
+
+test("getPhotos() returns array", function(t) {
+    var urls = methods.getPhotoUrls(testData.data);
+
+    t.equal(Array.isArray(urls), true, "getPhotos() returns an array");
+    t.end();
+});
+
+test("getPhotos() returns array of 15 urls", function(t) {
+    var urls = methods.getPhotoUrls(testData.data);
+
+    t.equal(urls.length, 15, "getPhotos() returns array of length 15");
     t.end();
 });

@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "node test/server-tests.js && tape -r babel-register test/client-tests.js",
+    "test": "tape -r babel-register test/client-tests.js && node test/server-tests.js",
     "sass": "sass --watch src/css/main.scss:public/css/main.css",
     "build": "webpack --watch --optimize-minimize",
     "dev": "nodemon server.js",

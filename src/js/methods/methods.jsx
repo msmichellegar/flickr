@@ -17,7 +17,7 @@ var methods = {
                 var data = JSON.parse(request.responseText);
 
                 methods.renderCarousel(data);
-                methods.getPhotoUrls(data, keyword);
+                methods.renderGrid(data, keyword);
 
             }
         };
@@ -27,10 +27,9 @@ var methods = {
     },
 
     // identifies URLs for photos fetched from Flickr and triggers grid rerender
-    getPhotoUrls: function getPhotoUrls(data, keyword) {
+    getPhotoUrls: function getPhotoUrls(data) {
         var photoData = data.photos.photo;
         var urls = [];
-        var pageNumber = data.photos.page;
 
         // for each chunk of photo data, constructs URL and pushes to array
         for (var i=0; i < photoData.length; i++) {
@@ -39,7 +38,7 @@ var methods = {
             urls.push(url);
         }
 
-        methods.renderGrid(urls, keyword, pageNumber);
+        return urls;
 
     },
 
@@ -56,7 +55,9 @@ var methods = {
     },
 
     // renders or rerenders grid with given photo URLs
-    renderGrid: function renderGrid(urls, keyword, pageNumber) {
+    renderGrid: function renderGrid(data, keyword) {
+        var urls = methods.getPhotoUrls(data);
+        var pageNumber = data.photos.page;
 
         // renders <Grid />
         ReactDOM.render(
