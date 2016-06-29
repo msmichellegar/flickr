@@ -118,6 +118,7 @@ nav {
 .share-button {
   display: flex;
   justify-content: flex-end;
+  flex-wrap: nowrap;
   height: 50px;
   margin: 10px auto;
   overflow: visible;
