@@ -18,28 +18,54 @@ var Carousel = React.createClass({
     },
 
     componentDidMount: function() {
-        var leftArrowNode = document.querySelectorAll(".left");
-        var rightArrowNode = document.querySelectorAll(".right");
-        var properties = this.props;
-        var currentImageId;
+        var properties = this.props
 
-        // adds event listener to left arrow click
-        leftArrowNode[0].addEventListener("click", function() {
-            currentImageId = document.getElementsByClassName("carousel-image")[0].id;
-
-            loadPreviousImage(properties, currentImageId);
-        });
-
-        // adds event listener to right arrow click
-        rightArrowNode[0].addEventListener("click", function() {
-            currentImageId = document.getElementsByClassName("carousel-image")[0].id;
-
-            loadNextImage(properties, currentImageId);
-        });
+        addArrowEventListeners(properties);
 
     }
 
 });
+
+// adds event listeners to carousel arrows
+function addArrowEventListeners(properties) {
+    var leftArrowNode = document.querySelectorAll(".left");
+    var rightArrowNode = document.querySelectorAll(".right");
+    var currentImageId;
+
+    // adds event listener to left arrow click
+    leftArrowNode[0].addEventListener("click", function() {
+        currentImageId = document.getElementsByClassName("carousel-image")[0].id;
+
+        loadPreviousImage(properties, currentImageId);
+    });
+
+    // adds event listener to right arrow click
+    rightArrowNode[0].addEventListener("click", function() {
+        currentImageId = document.getElementsByClassName("carousel-image")[0].id;
+
+        loadNextImage(properties, currentImageId);
+    });
+
+    // adds event listener on left arrow mouseover
+    leftArrowNode[0].addEventListener("mouseover", function() {
+        leftArrowNode[0].src = "../public/images/left-arrow-hover.svg";
+    });
+
+    // adds event listener on left arrow mouseleave
+    leftArrowNode[0].addEventListener("mouseleave", function() {
+        leftArrowNode[0].src = "../public/images/left-arrow.svg";
+    });
+
+    // adds event listener on right arrow mouseover
+    rightArrowNode[0].addEventListener("mouseover", function() {
+        rightArrowNode[0].src = "../public/images/right-arrow-hover.svg";
+    });
+
+    // adds event listener on right arrow mouseleave
+    rightArrowNode[0].addEventListener("mouseleave", function() {
+        rightArrowNode[0].src = "../public/images/right-arrow.svg";
+    });
+}
 
 // loads previous image in carousel
 function loadPreviousImage(properties, currentImageId) {
