@@ -67,7 +67,7 @@ function loadPreviousImage(properties, currentImageId) {
 }
 
 // loads next image in carousel
-function loadsNextImage(properties, currentImageId) {
+function loadNextImage(properties, currentImageId) {
     var nextImageId = parseInt(currentImageId) + 1;
     var nextImage;
 

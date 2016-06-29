@@ -5,6 +5,7 @@
     .carousel-image {
         height: 400px;
         max-width: 60%;
+        object-fit: cover;
 
         @media (max-width: 750px) {
             height: 250px;

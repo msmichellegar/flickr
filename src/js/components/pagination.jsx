@@ -38,7 +38,6 @@ function addPaginationEventListeners(keyword, methods) {
 
             // << loads first page
             if (node.innerText === "<<") {
-
                 methods.getPhotos("1", keyword);
 
             // < loads previous page
@@ -58,19 +57,15 @@ function addPaginationEventListeners(keyword, methods) {
                 if (currentPageNumber + 1 !== 6) {
                     nextPage = parseInt(currentPageNumber +1);
 
-                    console.log(nextPage)
-
                     methods.getPhotos(nextPage.toString(), keyword);
                 }
 
             // >> loads last page
             } else if (node.innerText === ">>") {
-
                 methods.getPhotos("6", keyword);
 
             // number loads specific page
             } else {
-
                 methods.getPhotos(node.innerText, keyword);
 
             }

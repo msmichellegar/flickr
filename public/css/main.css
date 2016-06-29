@@ -91,7 +91,8 @@ nav {
   margin-bottom: 80px; }
   .carousel .carousel-image {
     height: 400px;
-    max-width: 60%; }
+    max-width: 60%;
+    object-fit: cover; }
     @media (max-width: 750px) {
       .carousel .carousel-image {
         height: 250px;
@@ -163,8 +164,8 @@ nav {
     height: 40px;
     font-size: 16px;
     letter-spacing: 1px;
+    min-width: 100px;
     padding: 10px 15px;
-    text-align: right;
     -webkit-appearance: none; }
   .share-button button:hover {
     color: #FCB712;

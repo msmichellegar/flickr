@@ -1,6 +1,7 @@
 .share-button {
     display: flex;
     justify-content: flex-end;
+    flex-wrap: nowrap;
     height: 50px;
     margin: 10px auto;
     overflow: visible;
@@ -64,8 +65,8 @@
         height: 40px;
         font-size: 16px;
         letter-spacing: 1px;
+        min-width: 100px;
         padding: 10px 15px;
-        text-align: right;
         -webkit-appearance: none;
     }
 
