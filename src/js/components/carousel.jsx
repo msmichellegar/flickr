@@ -18,7 +18,7 @@ var Carousel = React.createClass({
     },
 
     componentDidMount: function() {
-        var properties = this.props
+        var properties = this.props;
 
         addArrowEventListeners(properties);
 

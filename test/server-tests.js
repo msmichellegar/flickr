@@ -29,5 +29,6 @@ test("FLICKR_KEY is defined'", function (t) {
 
 test("FLICKR_KEY is defined'", function (t) {
     t.notEqual(process.env.FLICKR_KEY, undefined, "FLICKR_SECRET set");
+    server.stop();
     t.end();
 });

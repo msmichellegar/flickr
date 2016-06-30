@@ -6,7 +6,7 @@ var server = new Hapi.Server();
 
 server.register(Inert, function () {
     server.connection({
-        port: process.env.PORT || 8080
+        port: process.env.PORT || 9000
     });
     server.route(routes);
 });
