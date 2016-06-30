@@ -101,7 +101,7 @@ $ npm run test
 
 ###### 5. Start the server
 
-To start the server in development mode, run this command, and navigate to http://localhost:8080/
+To start the server in development mode, run this command, and navigate to http://localhost:9000/
 
 ```
 $ npm run dev
