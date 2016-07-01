@@ -6,9 +6,7 @@ This is actually my first ever project built in React. I chose React for its str
 
 ## Tech Stack
 
-This app is built with *React* on the front-end for dynamic rendering. Source files are bundled together with *Webpack*. *SASS* has been used for writing CSS. The back-end is built in *Node.js*, using *Hapi.js* as a configuration framework, and *Inert* for serving static files. Tests have been written client and server-side in *Tape*, with *Enzyme* integrated for testing React. The project is deployed to *Heroku*.
-
-To communicate with the Flickr API, I used the *Flickr API* Node-wrapper library by @Pomax. In the last 24 hours of working on the project, the library developed a JSON parsing error due to changes in the Flickr API. I made a fix in the module that restored functionality and made a pull request, but since this has not yet been merged, I published my own patched version of the library on npm for the interim. You can find it [here](https://www.npmjs.com/package/flickrapi-patched).
+This app is built with *React* on the front-end for dynamic rendering. Source files are bundled together with *Webpack*. *SASS* has been used for writing CSS. The back-end is built in *Node.js*, using *Hapi.js* as a configuration framework, and *Inert* for serving static files. Tests have been written client and server-side in *Tape*, with *Enzyme* integrated for testing React. The project is deployed to *Heroku*. To communicate with the Flickr API, I used the *Flickr API* Node-wrapper library by @Pomax.
 
 ## Features
 
