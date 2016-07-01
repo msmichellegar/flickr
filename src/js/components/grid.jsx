@@ -14,10 +14,10 @@ var Grid = React.createClass({
 
         var pageNumberId = "page-" + this.props.pageNumber;
 
-        var tiles = arrayOfImages.map(function(arrayImage, searchTerm) {
+        var tiles = arrayOfImages.map(function(arrayImage) {
             counter++;
 
-            return <Tile image={arrayImage} key={counter} id={counter} searchTerm={searchTerm} />;
+            return <Tile searchTerm={searchTerm} image={arrayImage} key={counter} id={counter} />;
         });
 
         return (

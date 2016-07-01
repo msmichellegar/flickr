@@ -10,7 +10,7 @@ var Tile = React.createClass({
         return (
 
             <div className="tile">
-                <img src={this.props.image} id={this.props.id} alt={this.props.keyword} />
+                <img src={this.props.image} id={this.props.id} alt={this.props.searchTerm} />
             </div>
         );
     }

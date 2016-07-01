@@ -16,7 +16,7 @@ var methods = {
             if (request.status >= 200 && request.status < 400) {
                 var data = JSON.parse(request.responseText);
 
-                methods.renderCarousel(data);
+                methods.renderCarousel(data, keyword);
                 methods.renderGrid(data, keyword);
 
             }
@@ -43,13 +43,13 @@ var methods = {
     },
 
     // rerenders carousel with given data from Flickr
-    renderCarousel: function renderCarousel(data) {
+    renderCarousel: function renderCarousel(data, keyword) {
         var photoData = data.photos.photo;
         var firstPhotoUrl = "https://farm" + photoData[0].farm + ".staticflickr.com/" + photoData[0].server + "/" + photoData[0].id + "_" + photoData[0].secret + "_n.jpg";
 
         // renders <Carousel />
         ReactDOM.render(
-            <Carousel image={firstPhotoUrl} id="0" />,
+            <Carousel image={firstPhotoUrl} id="0" keyword={keyword} />,
             document.getElementsByClassName("carousel")[0]
         );
     },

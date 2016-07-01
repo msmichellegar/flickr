@@ -35,6 +35,7 @@ function addPaginationEventListeners(keyword, methods) {
         node.addEventListener("click", function() {
             var currentPageId = document.querySelectorAll(".grid")[0].id;
             var currentPageNumber = parseInt(currentPageId.split("-")[1]);
+            var keyword = document.querySelectorAll(".carousel-image")[0].alt;
 
             // << loads first page
             if (node.innerText === "<<") {
